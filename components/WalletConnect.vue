@@ -7,7 +7,7 @@
           Say Hi! Ethereum + Nuxt
         </h1>
         <p class="mt-3 text-lg text-gray-600 mb-8">
-          Connect you wallet and say hi 🖖 to the world!
+          Hey there! I´m Jean Ayala and this is my first project using ethereum. Connect you wallet and say hi 🖖 to the world!
         </p>
         <button class="w-full md:w-auto py-1 px-2 rounded bg-yellow-600 hover:bg-yellow-400 text-white font-semibold text-lg shadow-md">Connect Metamask</button>
       </div>
