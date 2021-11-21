@@ -10,7 +10,8 @@
           Hey there! I´m Jean Ayala and this is my first project using ethereum. Connect you wallet and say hi 🖖 to the world!
         </p>
         <button v-if="hasMetamask === null" disabled class="w-full md:w-auto py-2 px-4 rounded border border-yellow-600 text-yellow-600 font-semibold text-lg shadow-md cursor-default">Checking Metamask...</button>
-        <button v-else-if="hasMetamask" class="w-full md:w-auto py-2 px-4 rounded bg-yellow-600 hover:bg-yellow-400 text-white font-semibold text-lg shadow-md">Connect Wallet</button>
+        <button v-else-if="hasMetamask && currentAccount === null" class="w-full md:w-auto py-2 px-4 rounded bg-yellow-600 hover:bg-yellow-400 text-white font-semibold text-lg shadow-md" @click="connectWallet()">Connect Wallet</button>
+        <button v-else-if="hasMetamask && currentAccount !== null" class="w-full md:w-auto py-2 px-4 rounded bg-yellow-600 hover:bg-yellow-400 text-white font-semibold text-lg shadow-md">Say hi! 🖖</button>
         <div v-else-if="!hasMetamask" class="flex flex-wrap">
           <p class="w-full md:w-auto py-1 px-2 text-red-600 font-semibold text-lg text-center">You need Metamask to access</p>
           <a href="https://metamask.io/" target="_blank" class="w-full md:w-auto py-1 px-2 font-semibold text-lg underline text-center md:text-left md:ml-2 mt-4 md:mt-0">Get Metamask</a>
@@ -72,6 +73,23 @@ export default {
       }
     } catch (error) {
       console.log(error);
+    }
+  },
+  methods: {
+    async connectWallet() {
+      try {
+        const { ethereum } = window;
+  
+        if (!ethereum) {
+          return;
+        }
+  
+        const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+  
+        this.currentAccount = accounts[0]; 
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }
