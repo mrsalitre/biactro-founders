@@ -2,14 +2,14 @@
 <template>
   <div class="relative flex items-top justify-center md:min-h-screen bg-gray-100 md:items-center sm:pt-0 shadow pb-4 md:pb-0">
     <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
-      <div class="mt-8 bg-white overflow-hidden shadow sm:rounded-lg p-3 py-6">
+      <div class="mt-8 md:bg-white overflow-hidden md:shadow md:rounded-lg p-3 py-6">
         <h1 class="lg:w-1/2 text-4xl text-gray-900 tracking-tight leading-10 font-bold font-serif sm:text-5xl sm:leading-none md:text-6xl xl:pr-2">
           Say Hi! Ethereum + Nuxt
         </h1>
         <p class="mt-3 text-lg text-gray-600 mb-8">
           Hey there! I´m Jean Ayala and this is my first project using ethereum. Connect you wallet and say hi 🖖 to the world!
         </p>
-        <button v-if="hasMetamask === null" disabled class="w-full md:w-auto py-1 px-2 rounded border border-yellow-600 text-yellow-600 font-semibold text-lg shadow-md cursor-default">Checking Metamask...</button>
+        <button v-if="hasMetamask === null" disabled class="w-full md:w-auto py-2 px-4 rounded border border-yellow-600 text-yellow-600 font-semibold text-lg shadow-md cursor-default">Checking Metamask...</button>
         <button v-else-if="hasMetamask" class="w-full md:w-auto py-2 px-4 rounded bg-yellow-600 hover:bg-yellow-400 text-white font-semibold text-lg shadow-md">Connect Wallet</button>
         <div v-else-if="!hasMetamask" class="flex flex-wrap">
           <p class="w-full md:w-auto py-1 px-2 text-red-600 font-semibold text-lg text-center">You need Metamask to access</p>
@@ -56,7 +56,6 @@ export default {
       const { ethereum } = window;
 
       if (!ethereum) {
-        console.log("Make sure you have metamask!");
         this.hasMetamask = false;
         return;
       } else {
@@ -67,8 +66,7 @@ export default {
 
       if (accounts.length !== 0) {
         const account = accounts[0];
-        console.log("Found an authorized account:", account);
-        this.currentAccount(account);
+        this.currentAccount = account;
       } else {
         console.log("No authorized account found")
       }
