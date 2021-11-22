@@ -15,7 +15,7 @@
           <input
             v-model.trim="message"
             type="text"
-            class="mb-4 border-2 border-gray-300 bg-white h-10 px-3 rounded-lg text-sm focus:outline-none w-full"
+            class="mb-4 border-2 border-gray-300 bg-white h-10 px-3 rounded text-sm focus:outline-none w-full"
             placeholder="Message"
           />
           <button class="w-full md:w-auto py-2 px-4 rounded bg-yellow-600 hover:bg-yellow-400 text-white font-semibold text-lg shadow-md" @click="sayHi()">{{ mining ? 'Sending...' : 'Say hi! 🖖' }}</button>
