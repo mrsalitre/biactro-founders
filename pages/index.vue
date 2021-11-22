@@ -1,7 +1,7 @@
 <template>
   <div>
     <WalletConnect @message-sent="getGreetings()" />
-    <div class="max-w-xl mx-auto px-3 sm:px-6 lg:px-8 py-12">
+    <div v-show="greetings.length" class="max-w-xl mx-auto px-3 sm:px-6 lg:px-8 py-12">
       <h2 class="lg:w-1/2 text-4xl text-gray-900 tracking-tight leading-10 font-bold font-serif sm:text-5xl sm:leading-none md:text-6xl xl:pr-2">Latest greetings</h2>
       <table class="min-w-full border-collapse block md:table mt-8">
           <thead class="block md:table-header-group">
@@ -66,7 +66,6 @@ export default {
   },
   methods: {
     async getGreetings() {
-      console.log("getGreetings");
       const contractAddress = '0x96282530B83B2721980933f7e5892afAE938C2Ec'
       const contractABI = abi.abi
       try {

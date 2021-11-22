@@ -13,7 +13,7 @@
         <button v-else-if="hasMetamask && currentAccount === null" class="w-full md:w-auto py-2 px-4 rounded bg-yellow-600 hover:bg-yellow-400 text-white font-semibold text-lg shadow-md" @click="connectWallet()">Connect Wallet</button>
         <div v-else-if="hasMetamask && currentAccount !== null">
           <input
-            v-model="message"
+            v-model.trim="message"
             type="text"
             class="mb-4 border-2 border-gray-300 bg-white h-10 px-3 rounded-lg text-sm focus:outline-none w-full"
             placeholder="Message"
@@ -105,6 +105,9 @@ export default {
       }
     },
     async sayHi() {
+      if (!this.message.length) {
+        return;
+      }
       const contractAddress = '0x96282530B83B2721980933f7e5892afAE938C2Ec'
       const contractABI = abi.abi
       try {
