@@ -1,6 +1,6 @@
 <template>
   <div>
-    <WalletConnect @message-sent="getGreetings()" />
+    <WalletConnect />
     <div v-show="greetings.length" class="max-w-xl mx-auto px-3 sm:px-6 lg:px-8 py-12">
       <h2 class="lg:w-1/2 text-4xl text-gray-900 tracking-tight leading-10 font-bold font-serif sm:text-5xl sm:leading-none md:text-6xl xl:pr-2">Latest <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-red-600">greetings</span></h2>
       <table class="min-w-full border-collapse block md:table mt-8">
@@ -68,8 +68,8 @@ export default {
   methods: {
     async getGreetings() {
       const contractAddress = '0xC2C0511dfCFd09a9d6D47ab85831B5703bAfbe21'
-      const lastContractAddress = '0x96282530B83B2721980933f7e5892afAE938C2Ec'
       const contractABI = abiv001.abi
+      const lastContractAddress = '0x96282530B83B2721980933f7e5892afAE938C2Ec'
       const lastContractABI = abiv000.abi
       try {
         const { ethereum } = window;
@@ -79,6 +79,8 @@ export default {
           const signer = provider.getSigner();
           const wavePortalContractv000 = new ethers.Contract(lastContractAddress, lastContractABI, signer);
           const wavePortalContractv001 = new ethers.Contract(contractAddress, contractABI, signer);
+
+          wavePortalContractv001.on('greeting', (_greeting, _wallet) => this.greetings.push([_greeting, _wallet]));
 
           const greetingsv000 = await wavePortalContractv000.getGreetings();
           const greetingsv001 = await wavePortalContractv001.getGreetings();
