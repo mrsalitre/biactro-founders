@@ -31,14 +31,14 @@
               >
                 <span class="inline-block w-1/3 md:hidden font-bold">
                   address</span
-                >{{ greeting.wallet }}
+                >{{ greeting[1] }}
               </td>
               <td
                 class="p-2 text-sm md:text-base md:border md:border-grey-500 text-left block md:table-cell"
               >
                 <span class="inline-block w-1/3 md:hidden font-bold"
                   >greeting</span
-                >{{ greeting.greeting }}
+                >{{ greeting[0] }}
               </td>
             </tr>
           </tbody>
