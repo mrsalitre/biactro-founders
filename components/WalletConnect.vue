@@ -118,7 +118,7 @@ export default {
           const signer = provider.getSigner();
           const wavePortalContract = new ethers.Contract(contractAddress, contractABI, signer);
 
-          const waveTxn = await wavePortalContract.sayHi(this.message);
+          const waveTxn = await wavePortalContract.sayHi(this.message, { gasLimit: 300000 });
           this.mining = true;
   
           await waveTxn.wait();
