@@ -21,26 +21,13 @@
             </tr>
           </thead>
           <tbody class="block md:table-row-group">
-            <tr
+            <TableRow
               v-for="(greeting, key) in reversedGreetings"
               :key="key"
               class="border block md:table-row"
-            >
-              <td
-                class="p-2 text-sm md:text-base md:border md:border-grey-500 text-left block md:table-cell"
-              >
-                <span class="inline-block w-1/3 md:hidden font-bold">
-                  address</span
-                >{{ greeting[1] }}
-              </td>
-              <td
-                class="p-2 text-sm md:text-base md:border md:border-grey-500 text-left block md:table-cell"
-              >
-                <span class="inline-block w-1/3 md:hidden font-bold"
-                  >greeting</span
-                >{{ greeting[0] }}
-              </td>
-            </tr>
+              :greeting="greeting[0]"
+              :wallet="greeting[1]"
+            />
           </tbody>
         </table>
     </div>
@@ -80,7 +67,7 @@ export default {
           const wavePortalContractv000 = new ethers.Contract(lastContractAddress, lastContractABI, signer);
           const wavePortalContractv001 = new ethers.Contract(contractAddress, contractABI, signer);
 
-          wavePortalContractv001.on('greeting', (_greeting, _wallet) => this.greetings.push([_greeting, _wallet]));
+          wavePortalContractv001.on('greeting', (_greeting, _wallet) => this.greetings.push([_greeting, _wallet, true]));
 
           const greetingsv000 = await wavePortalContractv000.getGreetings();
           const greetingsv001 = await wavePortalContractv001.getGreetings();
