@@ -48,7 +48,8 @@
 </template>
 <script>
 import { ethers } from "ethers";
-import abi from '../static/SayHi.json'
+import abiv000 from '../static/SayHi.v0.0.0.json'
+import abiv001 from '../static/SayHi.v0.0.1.json'
 
 export default {
   data() {
@@ -66,17 +67,28 @@ export default {
   },
   methods: {
     async getGreetings() {
-      const contractAddress = '0x96282530B83B2721980933f7e5892afAE938C2Ec'
-      const contractABI = abi.abi
+      const contractAddress = '0xC2C0511dfCFd09a9d6D47ab85831B5703bAfbe21'
+      const lastContractAddress = '0x96282530B83B2721980933f7e5892afAE938C2Ec'
+      const contractABI = abiv001.abi
+      const lastContractABI = abiv000.abi
       try {
         const { ethereum } = window;
 
         if (ethereum) {
           const provider = new ethers.providers.Web3Provider(ethereum);
           const signer = provider.getSigner();
-          const wavePortalContract = new ethers.Contract(contractAddress, contractABI, signer);
+          const wavePortalContractv000 = new ethers.Contract(lastContractAddress, lastContractABI, signer);
+          const wavePortalContractv001 = new ethers.Contract(contractAddress, contractABI, signer);
 
-          this.greetings = await wavePortalContract.getGreetings();
+          const greetingsv000 = await wavePortalContractv000.getGreetings();
+          const greetingsv001 = await wavePortalContractv001.getGreetings();
+
+          for (const greeting of greetingsv000) {
+            this.greetings.push(greeting);
+          }
+          for (const greeting of greetingsv001) {
+            this.greetings.push(greeting);
+          }
         } else {
           console.log("Ethereum object doesn't exist!");
         }

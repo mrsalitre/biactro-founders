@@ -54,7 +54,7 @@
 </template>
 <script>
 import { ethers } from "ethers";
-import abi from '../static/SayHi.json'
+import abi from '../static/SayHi.v0.0.1.json'
 
 export default {
   data() {
@@ -108,7 +108,7 @@ export default {
       if (!this.message.length) {
         return;
       }
-      const contractAddress = '0x96282530B83B2721980933f7e5892afAE938C2Ec'
+      const contractAddress = '0xC2C0511dfCFd09a9d6D47ab85831B5703bAfbe21'
       const contractABI = abi.abi
       try {
         const { ethereum } = window;
