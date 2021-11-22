@@ -1,6 +1,6 @@
 <!-- Please remove this file from your project -->
 <template>
-  <div class="relative flex items-top justify-center md:min-h-screen bg-gray-100 md:items-center sm:pt-0 shadow pb-4 md:pb-0">
+  <div class="relative flex items-top justify-center md:min-h-screen bg-gray-100 md:items-center sm:pt-0 pb-4 md:pb-0">
     <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
       <div class="mt-8 md:bg-white overflow-hidden md:shadow md:rounded-lg p-3 py-6">
         <h1 class="lg:w-1/2 text-4xl text-gray-900 tracking-tight leading-10 font-bold font-serif sm:text-5xl sm:leading-none md:text-6xl xl:pr-2">
