@@ -108,7 +108,7 @@ export default {
       if (!this.message.length) {
         return;
       }
-      const contractAddress = '0x411fbfcC8147C96cc451E46fD0c3BA85B8817cDb'
+      const contractAddress = '0xE48c9428CFADCe4448D52338f1EbB1eB7F656B46'
       const contractABI = abi.abi
       try {
         const { ethereum } = window;
