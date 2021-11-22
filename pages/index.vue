@@ -22,7 +22,7 @@
           </thead>
           <tbody class="block md:table-row-group">
             <tr
-              v-for="(greeting, key) in greetings"
+              v-for="(greeting, key) in reversedGreetings"
               :key="key"
               class="border block md:table-row"
             >
@@ -56,11 +56,17 @@ export default {
       greetings: [],
     };
   },
+  computed: {
+    reversedGreetings() {
+      return this.greetings.slice(0).reverse()
+    }
+  },
   mounted() {
     this.getGreetings();
   },
   methods: {
     async getGreetings() {
+      console.log("getGreetings");
       const contractAddress = '0x96282530B83B2721980933f7e5892afAE938C2Ec'
       const contractABI = abi.abi
       try {

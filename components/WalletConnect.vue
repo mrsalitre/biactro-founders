@@ -18,7 +18,7 @@
             class="mb-4 border-2 border-gray-300 bg-white h-10 px-3 rounded-lg text-sm focus:outline-none w-full"
             placeholder="Message"
           />
-          <button class="w-full md:w-auto py-2 px-4 rounded bg-yellow-600 hover:bg-yellow-400 text-white font-semibold text-lg shadow-md" @click="sayHi()">Say hi! 🖖</button>
+          <button class="w-full md:w-auto py-2 px-4 rounded bg-yellow-600 hover:bg-yellow-400 text-white font-semibold text-lg shadow-md" @click="sayHi()">{{ mining ? 'Sending...' : 'Say hi! 🖖' }}</button>
         </div>
         <div v-else-if="!hasMetamask" class="flex flex-wrap">
           <p class="w-full md:w-auto py-1 px-2 text-red-600 font-semibold text-lg text-center">You need Metamask to access</p>
@@ -62,6 +62,7 @@ export default {
       hasMetamask: null,
       currentAccount: null,
       message: '',
+      mining: false,
     }
   },
   async mounted () {
@@ -114,7 +115,13 @@ export default {
           const signer = provider.getSigner();
           const wavePortalContract = new ethers.Contract(contractAddress, contractABI, signer);
 
-          await wavePortalContract.sayHi(this.message);
+          const waveTxn = await wavePortalContract.sayHi(this.message);
+          this.mining = true;
+  
+          await waveTxn.wait();
+          this.mining = false;
+
+          this.message = '';
           this.$emit('message-sent');
         } else {
           console.log("Ethereum object doesn't exist!");
