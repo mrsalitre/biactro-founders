@@ -4,7 +4,7 @@
     <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
       <div class="mt-8 md:bg-white overflow-hidden md:shadow md:rounded-lg p-3 py-6">
         <h1 class="lg:w-1/2 text-4xl text-gray-900 tracking-tight leading-10 font-bold font-serif sm:text-5xl sm:leading-none md:text-6xl xl:pr-2">
-          Say Hi! Ethereum + Nuxt
+          Say Hi! <br><span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-red-600">Ethereum + Nuxt</span>
         </h1>
         <p class="mt-3 text-lg text-gray-600 mb-8">
           Hey there! I´m Jean Ayala and this is my first project using ethereum. Connect you wallet and say hi 🖖 to the world!
@@ -25,7 +25,7 @@
           <a href="https://metamask.io/" target="_blank" class="w-full md:w-auto py-1 px-2 font-semibold text-lg underline text-center md:text-left md:ml-2 mt-4 md:mt-0">Get Metamask</a>
         </div>
       </div>
-      <div class="flex justify-center md:pt-4 space-x-2">
+      <div class="flex justify-center -mt-2 md:mt-0 md:pt-4 space-x-2">
         <a href="https://github.com/mrsalitre/" target="_blank"><svg
           class="w-6 h-6 text-gray-600 hover:text-gray-800"
           xmlns="http://www.w3.org/2000/svg"

@@ -2,7 +2,7 @@
   <div>
     <WalletConnect @message-sent="getGreetings()" />
     <div v-show="greetings.length" class="max-w-xl mx-auto px-3 sm:px-6 lg:px-8 py-12">
-      <h2 class="lg:w-1/2 text-4xl text-gray-900 tracking-tight leading-10 font-bold font-serif sm:text-5xl sm:leading-none md:text-6xl xl:pr-2">Latest greetings</h2>
+      <h2 class="lg:w-1/2 text-4xl text-gray-900 tracking-tight leading-10 font-bold font-serif sm:text-5xl sm:leading-none md:text-6xl xl:pr-2">Latest <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-red-600">greetings</span></h2>
       <table class="min-w-full border-collapse block md:table mt-8">
           <thead class="block md:table-header-group">
             <tr
