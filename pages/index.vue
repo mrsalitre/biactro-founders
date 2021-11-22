@@ -1,6 +1,6 @@
 <template>
   <div>
-    <WalletConnect />
+    <WalletConnect @message-sent="getGreetings()" />
     <div class="max-w-xl mx-auto px-3 sm:px-6 lg:px-8 py-12">
       <h2 class="lg:w-1/2 text-4xl text-gray-900 tracking-tight leading-10 font-bold font-serif sm:text-5xl sm:leading-none md:text-6xl xl:pr-2">Latest greetings</h2>
       <table class="min-w-full border-collapse block md:table mt-8">
@@ -47,14 +47,38 @@
   </div>
 </template>
 <script>
+import { ethers } from "ethers";
+import abi from '../static/SayHi.json'
+
 export default {
   data() {
     return {
-      greetings: [{
-        wallet: '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266',
-        greeting: 'GM, world!'
-      }],
+      greetings: [],
     };
   },
+  mounted() {
+    this.getGreetings();
+  },
+  methods: {
+    async getGreetings() {
+      const contractAddress = '0x96282530B83B2721980933f7e5892afAE938C2Ec'
+      const contractABI = abi.abi
+      try {
+        const { ethereum } = window;
+
+        if (ethereum) {
+          const provider = new ethers.providers.Web3Provider(ethereum);
+          const signer = provider.getSigner();
+          const wavePortalContract = new ethers.Contract(contractAddress, contractABI, signer);
+
+          this.greetings = await wavePortalContract.getGreetings();
+        } else {
+          console.log("Ethereum object doesn't exist!");
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
 }
 </script>

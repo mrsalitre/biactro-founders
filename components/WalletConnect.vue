@@ -11,13 +11,21 @@
         </p>
         <button v-if="hasMetamask === null" disabled class="w-full md:w-auto py-2 px-4 rounded border border-yellow-600 text-yellow-600 font-semibold text-lg shadow-md cursor-default">Checking Metamask...</button>
         <button v-else-if="hasMetamask && currentAccount === null" class="w-full md:w-auto py-2 px-4 rounded bg-yellow-600 hover:bg-yellow-400 text-white font-semibold text-lg shadow-md" @click="connectWallet()">Connect Wallet</button>
-        <button v-else-if="hasMetamask && currentAccount !== null" class="w-full md:w-auto py-2 px-4 rounded bg-yellow-600 hover:bg-yellow-400 text-white font-semibold text-lg shadow-md">Say hi! 🖖</button>
+        <div v-else-if="hasMetamask && currentAccount !== null">
+          <input
+            v-model="message"
+            type="text"
+            class="mb-4 border-2 border-gray-300 bg-white h-10 px-3 rounded-lg text-sm focus:outline-none w-full"
+            placeholder="Message"
+          />
+          <button class="w-full md:w-auto py-2 px-4 rounded bg-yellow-600 hover:bg-yellow-400 text-white font-semibold text-lg shadow-md" @click="sayHi()">Say hi! 🖖</button>
+        </div>
         <div v-else-if="!hasMetamask" class="flex flex-wrap">
           <p class="w-full md:w-auto py-1 px-2 text-red-600 font-semibold text-lg text-center">You need Metamask to access</p>
           <a href="https://metamask.io/" target="_blank" class="w-full md:w-auto py-1 px-2 font-semibold text-lg underline text-center md:text-left md:ml-2 mt-4 md:mt-0">Get Metamask</a>
         </div>
       </div>
-      <div class="flex justify-center pt-4 space-x-2">
+      <div class="flex justify-center md:pt-4 space-x-2">
         <a href="https://github.com/mrsalitre/" target="_blank"><svg
           class="w-6 h-6 text-gray-600 hover:text-gray-800"
           xmlns="http://www.w3.org/2000/svg"
@@ -45,11 +53,15 @@
   </div>
 </template>
 <script>
+import { ethers } from "ethers";
+import abi from '../static/SayHi.json'
+
 export default {
   data() {
     return {
       hasMetamask: null,
-      currentAccount: null
+      currentAccount: null,
+      message: '',
     }
   },
   async mounted () {
@@ -87,6 +99,26 @@ export default {
         const accounts = await ethereum.request({ method: "eth_requestAccounts" });
   
         this.currentAccount = accounts[0]; 
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    async sayHi() {
+      const contractAddress = '0x96282530B83B2721980933f7e5892afAE938C2Ec'
+      const contractABI = abi.abi
+      try {
+        const { ethereum } = window;
+
+        if (ethereum) {
+          const provider = new ethers.providers.Web3Provider(ethereum);
+          const signer = provider.getSigner();
+          const wavePortalContract = new ethers.Contract(contractAddress, contractABI, signer);
+
+          await wavePortalContract.sayHi(this.message);
+          this.$emit('message-sent');
+        } else {
+          console.log("Ethereum object doesn't exist!");
+        }
       } catch (error) {
         console.log(error)
       }
