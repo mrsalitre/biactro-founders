@@ -42,28 +42,6 @@
           </button>
         </div>
       </div>
-      <!-- <div class="mt-8 flex lg:flex-shrink-0">
-        <div
-          class="inline-flex rounded-md shadow"
-        >
-          <button
-            v-scroll-to="`#hero`"
-            class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-semibold rounded-md bg-biactro-light hover:bg-biactro-dark hover:text-white focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
-          >
-            ¡Registrarse ahora!
-          </button>
-        </div>
-        <div
-          class="ml-3 inline-flex rounded-full shadow"
-        >
-          <button
-            v-scroll-to="`${scrollToElement}`"
-            class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-100 hover:text-gray-600 focus:outline-none focus:shadow-outline transition duration-150 ease-in-out"
-          >
-            Conozca más
-          </button>
-        </div>
-      </div> -->
     </div>
   </div>
 </template>
