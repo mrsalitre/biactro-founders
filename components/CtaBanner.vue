@@ -20,7 +20,29 @@
          </div>
         </div>
       </div>
-      <div class="mt-8 flex lg:flex-shrink-0">
+      <div class="mt-8 sm:mt-8 sm:flex lg:justify-start">
+        <div
+          class="rounded-md shadow"
+        >
+          <button
+            v-scroll-to="`#hero`"
+            class="w-full flex items-center text-white justify-center px-8 py-3 border-2 border-biactro text-base leading-6 rounded-md font-semibold bg-biactro hover:bg-biactro-dark hover:border-biactro-dark focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
+          >
+            ¡Registrarse ahora!
+          </button>
+        </div>
+        <div
+          class="rounded-md shadow mt-4 md:mt-0 md:ml-4"
+        >
+          <button
+            v-scroll-to="`${scrollToElement}`"
+            class="w-full flex items-center text-biactro-dark justify-center px-8 py-3 border-2 border-biactro-light text-base leading-6 rounded-md font-semibold hover:border-biactro focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
+          >
+            Conozca más
+          </button>
+        </div>
+      </div>
+      <!-- <div class="mt-8 flex lg:flex-shrink-0">
         <div
           class="inline-flex rounded-md shadow"
         >
@@ -41,7 +63,7 @@
             Conozca más
           </button>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

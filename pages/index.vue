@@ -6,6 +6,24 @@
     <TextSection />
     <InfoSection />
     <CtaBanner id="info" scroll-to-element="#more-info" title="¿A que irá destinado el dinero recolectado de la colección <span>Biactro Founders</span>?" :subtitle="`<p>Los fondos irán destinados a poner en marcha un módulo de gestión de residuos orgánicos, en el lugar del mundo que los miembros de Biactro Founders decidan, única y exclusivamente ellos.</p>`"/>
+    <footer class="bg-biactro-dark">
+      <div class="max-w-screen-xl mx-auto">
+        <div class="relative z-10">
+          <div class="mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="sm:text-center lg:text-left py-4 text-white">
+              <span class="font-semibold">
+                ©2021 <a class="underline" href="https://biactro.com" target="_blank">Biactro Technology</a> Todos los derechos reservados
+              </span>
+            </div>
+            <div class="sm:text-center lg:text-left py-4 text-white">
+              <span class="font-semibold">
+                Illustraciones de: <a class="underline" href="https://rodhunt.com/megacity-2050-bloomberg-businessweek-illustration" target="_blank">@rodhunt</a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 <script>
