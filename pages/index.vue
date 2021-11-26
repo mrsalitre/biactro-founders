@@ -1,11 +1,90 @@
 <template>
   <div>
     <HeroWalletConnect id="hero"/>
-    <CtaBanner id="info" scroll-to-element="#more-info" title="¿Qué es un NFT de la colección <span>Biactro Founders</span>?" :subtitle="`<p>Un NFT de la colección Biactro Founders es un certificado exclusivo que acredita a la persona que lo posea como <span>miembro fundador de Biactro.</span></p>`"/>
+    <div
+      class="bg-biactro-white"
+    >
+      <div
+        class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-32 lg:px-8 lg:items-center lg:justify-between"
+      >
+        <div
+          class="text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10"
+        >
+          <h2 
+            class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2 biactro-gradient"
+          >
+            ¿Qué es un NFT de la colección <span>Biactro Founders</span>?
+          </h2>
+          <p class="text-gray-700 text-xl sm:text-2xl biactro-gradient">Un NFT de la colección Biactro Founders es un certificado exclusivo que acredita a la persona que lo posea como <span>miembro fundador de Biactro.</span></p>
+        </div>
+        <div class="mt-8 sm:mt-8 sm:flex lg:justify-start">
+          <div
+            class="rounded-md shadow"
+          >
+            <button
+              v-scroll-to="`#hero`"
+              class="w-full flex items-center text-white justify-center px-8 py-3 border-2 border-biactro text-base leading-6 rounded-md font-semibold bg-biactro hover:bg-biactro-dark hover:border-biactro-dark focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
+            >
+              ¡Registrarse ahora!
+            </button>
+          </div>
+          <div
+            class="rounded-md shadow mt-4 md:mt-0 md:ml-4"
+          >
+            <button
+              v-scroll-to="`#more-info`"
+              class="w-full flex items-center text-biactro-dark justify-center px-8 py-3 border-2 border-biactro-light text-base leading-6 rounded-md font-semibold hover:border-biactro focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
+            >
+              Conozca más
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <FeatureList id="more-info" :items="items"/>
     <TextSection />
     <InfoSection />
-    <CtaBanner id="info" scroll-to-element="#more-info" title="¿A que irá destinado el dinero recolectado de la colección <span>Biactro Founders</span>?" :subtitle="`<p>Los fondos irán destinados a poner en marcha un módulo de gestión de residuos orgánicos, en el lugar del mundo que los miembros de Biactro Founders decidan, única y exclusivamente ellos.</p>`"/>
+    <!-- <CtaBanner id="info" scroll-to-element="#more-info" title="" :subtitle="``"/> -->
+    <div
+      class="bg-biactro-white"
+    >
+      <div
+        class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-32 lg:px-8 lg:items-center lg:justify-between"
+      >
+        <div
+          class="text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10"
+        >
+          <h2 
+            class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2 biactro-gradient"
+          >
+            ¿A que irá destinado el dinero recolectado de la colección <span>Biactro Founders</span>?
+          </h2>
+          <p class="text-gray-700 text-xl sm:text-2xl biactro-gradient">Los fondos irán destinados a poner en marcha un módulo de gestión de residuos orgánicos, en el lugar del mundo que los miembros de Biactro Founders decidan, única y exclusivamente ellos.</p>
+        </div>
+        <div class="mt-8 sm:mt-8 sm:flex lg:justify-start">
+          <div
+            class="rounded-md shadow"
+          >
+            <button
+              v-scroll-to="`#hero`"
+              class="w-full flex items-center text-white justify-center px-8 py-3 border-2 border-biactro text-base leading-6 rounded-md font-semibold bg-biactro hover:bg-biactro-dark hover:border-biactro-dark focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
+            >
+              ¡Registrarse ahora!
+            </button>
+          </div>
+          <div
+            class="rounded-md shadow mt-4 md:mt-0 md:ml-4"
+          >
+            <button
+              v-scroll-to="`#more-info`"
+              class="w-full flex items-center text-biactro-dark justify-center px-8 py-3 border-2 border-biactro-light text-base leading-6 rounded-md font-semibold hover:border-biactro focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
+            >
+              Conozca más
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <footer class="bg-biactro-dark">
       <div class="max-w-screen-xl mx-auto">
         <div class="relative z-10">
