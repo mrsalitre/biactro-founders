@@ -14,7 +14,8 @@
     "@nuxtjs/pwa": "^3.3.5",
     "core-js": "^3.15.1",
     "ethers": "^5.5.1",
-    "nuxt": "^2.15.7"
+    "nuxt": "^2.15.7",
+    "vue-scrollto": "^2.20.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
@@ -26,6 +27,8 @@
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-vue": "^7.12.1",
     "postcss": "^8.3.5",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "sass": "^1.43.5",
+    "sass-loader": "^10.2.0"
   }
 }

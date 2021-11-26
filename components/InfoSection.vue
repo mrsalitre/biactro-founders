@@ -1,0 +1,17 @@
+<template>
+  <div class="bg-iberinsect-white">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-32">
+      <h2
+        class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2"
+      >
+        ¿Por qué hacemos esto?
+      </h2>
+      <p
+        class="mt-3 text-base text-gray-700 sm:mt-5 sm:text-lg sm:max-w-4xl md:mt-5 md:text-xl lg:mx-0 biactro-gradient"
+      >
+        En <span class="font-bold">Biactro Technologies</span> hemos decidido abrirnos a nuevos conceptos de financiación colectiva mediante el fundraising, por este motivo, en lugar de contar con grandes inversores queremos darle la oportunidad a cualquier persona afín a la filosofía del cuidado y la protección del medio ambiente, impulsando una tecnología única a nivel mundial.
+        Con esta idea evitamos dejar el futuro de nuestro planeta a las grandes empresas y lobbies.
+      </p>
+    </div>
+  </div>
+</template>
