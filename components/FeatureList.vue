@@ -4,13 +4,8 @@
       <h2
         class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2"
       >
-      ¿Qué obtengo al adquirir un NFT de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
+      ¿Qué obtengo al adquirir un NFT único de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
       </h2>
-      <!-- <p
-        class="mt-3 text-base text-gray-700 sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl lg:mx-0"
-      >
-
-      </p> -->
       <div class="md:mt-10 pb-4">
         <ul class="md:grid md:grid-cols-2 md:col-gap-8 md:row-gap-10">
           <li

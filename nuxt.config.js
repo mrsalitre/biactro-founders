@@ -45,8 +45,13 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'es'
-    }
+      name: 'Biactro Founders',
+      description: 'White list para Biactro Founders',
+      short_name: 'BF',
+      background_color: '#469E28',
+      lang: 'es',
+      theme_color: '#0dd751',
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

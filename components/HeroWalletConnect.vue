@@ -19,18 +19,35 @@
           class="rounded-md shadow"
         >
           <button
+            v-if="hasMetamask === null" disabled
             class="w-full flex items-center text-white justify-center px-8 py-3 border-2 border-biactro text-base leading-6 rounded-md font-semibold bg-biactro hover:bg-biactro-dark hover:border-biactro-dark focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
+          >
+            Comprobando cartera...
+          </button>
+          <button
+            v-else-if="hasMetamask && currentAccount === null"
+            class="w-full flex items-center text-white justify-center px-8 py-3 border-2 border-biactro text-base leading-6 rounded-md font-semibold bg-biactro hover:bg-biactro-dark hover:border-biactro-dark focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
+            @click="connectWallet()"
           >
             Conectar Metamask
           </button>
+          <button
+            v-else-if="hasMetamask && currentAccount !== null"
+            class="w-full flex items-center text-white justify-center px-8 py-3 border-2 border-biactro text-base leading-6 rounded-md font-semibold bg-biactro hover:bg-biactro-dark hover:border-biactro-dark focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
+            @click="signToTheList()"
+          >
+            {{ mining ? 'Registrando...' : 'Registrarse' }}
+          </button>
+          <div v-else-if="!hasMetamask" class="flex flex-wrap">
+            <p class="w-full md:w-auto py-1 px-2 text-red-600 font-semibold text-lg text-center">Necesitas Metamask para acceder</p>
+            <a href="https://metamask.io/" target="_blank" class="w-full md:w-auto py-1 px-2 font-semibold text-lg underline text-center md:text-left md:ml-2 mt-4 md:mt-0">Conseguir Metamask</a>
+          </div>
         </div>
         <div
           class="rounded-md shadow mt-4 md:mt-0 md:ml-4"
         >
           <button
-            v-scroll-to="
-              `#info`
-            "
+            v-scroll-to="`#info`"
             class="w-full flex items-center text-biactro-dark justify-center px-8 py-3 border-2 border-biactro-light text-base leading-6 rounded-md font-semibold hover:border-biactro focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
           >
             Conozca más
@@ -46,7 +63,83 @@
   </div>
 </template>
 <script>
+import { ethers } from "ethers";
+import abi from '../static/BiactroWhiteList.json'
+
 export default {
   name: 'Hero',
+  data() {
+    return {
+      hasMetamask: null,
+      currentAccount: null,
+      mining: false,
+    }
+  },
+  async mounted () {
+    try {
+      const { ethereum } = window;
+
+      if (!ethereum) {
+        this.hasMetamask = false;
+        return;
+      } else {
+        this.hasMetamask = true;
+      }
+
+      const accounts = await ethereum.request({ method: 'eth_accounts' });
+
+      if (accounts.length !== 0) {
+        const account = accounts[0];
+        this.currentAccount = account;
+      } else {
+        console.log("No authorized account found")
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  methods: {
+    async connectWallet() {
+      try {
+        const { ethereum } = window;
+  
+        if (!ethereum) {
+          return;
+        }
+  
+        const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+  
+        this.currentAccount = accounts[0]; 
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    async signToTheList() {
+      const contractAddress = '0xBF90f11cd232fE2880540D92c9F4EA9938B0BE8D'
+      const contractABI = abi.abi
+      try {
+        const { ethereum } = window;
+
+        if (ethereum) {
+          const provider = new ethers.providers.Web3Provider(ethereum);
+          const signer = provider.getSigner();
+          const biactroWhiteListContract = new ethers.Contract(contractAddress, contractABI, signer);
+
+          const addTxn = await biactroWhiteListContract.addMember({ gasLimit: 300000 });
+          this.mining = true;
+  
+          await addTxn.wait();
+          this.mining = false;
+
+          this.message = '';
+          this.$emit('new-register');
+        } else {
+          console.log("Ethereum object doesn't exist!");
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
 }
 </script>
