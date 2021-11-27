@@ -64,8 +64,3 @@ export default {
   }
 }
 </script>
-<style lang="sass">
-.biactro-gradient
-  span
-    @apply text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600
-</style>
