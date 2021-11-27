@@ -43,7 +43,7 @@
       </div>
     </div>
     <FeatureList id="more-info" :items="items"/>
-    <TextSection />
+    <TextSection title="¿Cuál será el precio base de cada Biactro Founders NFT?" description="El precio base de cada Biactro Founders empezará en 0.015 $ETH, solo las personas que se registren en la whitelist podrán adquirir un Biactro Founders a ese precio en todo momento."/>
     <InfoSection />
     <!-- <CtaBanner id="info" scroll-to-element="#more-info" title="" :subtitle="``"/> -->
     <div
@@ -86,6 +86,7 @@
         </div>
       </div>
     </div>
+    <TextSection :title="`Personas registradas: ${membersCount}/${maxMembers}`" description="Date prisa y registrate en la Whitelist, el numero se actualiza en tiempo real asi que, estos numeros no duraran mucho tiempo." img="/megaCity.jpg"/>
     <footer class="bg-biactro-dark">
       <div class="max-w-screen-xl mx-auto">
         <div class="relative z-10">
@@ -107,13 +108,15 @@
   </div>
 </template>
 <script>
-// import { ethers } from "ethers";
-// import abiv001 from '../static/SayHi.v0.0.1.json'
+import { ethers } from "ethers";
+import abiv001 from '../static/BiactroWhiteList.json'
 
 export default {
     data() {
         return {
-            greetings: [],
+            members: [],
+            membersCount: 0,
+            maxMembers: 0,
             items: [
               {
                 img: "/member.svg",
@@ -148,38 +151,41 @@ export default {
             ]
         };
     },
-    computed: {
-        // reversedGreetings() {
-        //     return this.greetings.slice(0).reverse();
-        // }
-    },
     mounted() {
-        // this.getGreetings();
+      this.getWhiteListData();
     },
     methods: {
-        // async getGreetings() {
-        //     const contractAddress = "0xE48c9428CFADCe4448D52338f1EbB1eB7F656B46";
-        //     const contractABI = abiv001.abi;
-        //     try {
-        //         const { ethereum } = window;
-        //         if (ethereum) {
-        //             const provider = new ethers.providers.Web3Provider(ethereum);
-        //             const signer = provider.getSigner();
-        //             const wavePortalContractv001 = new ethers.Contract(contractAddress, contractABI, signer);
-        //             wavePortalContractv001.on("greeting", (_greeting, _wallet) => this.greetings.push([_greeting, _wallet, true]));
-        //             const greetingsv001 = await wavePortalContractv001.getGreetings();
-        //             for (const greeting of greetingsv001) {
-        //                 this.greetings.push(greeting);
-        //             }
-        //         }
-        //         else {
-        //             console.log("Ethereum object doesn't exist!");
-        //         }
-        //     }
-        //     catch (error) {
-        //         console.log(error);
-        //     }
-        // }
+        async getWhiteListData() {
+            const contractAddress = "0xB925a1E2438dc3Acf19496EbA241E6dDed17D516";
+            const contractABI = abiv001.abi;
+            try {
+                const { ethereum } = window;
+                if (ethereum) {
+                    const provider = new ethers.providers.Web3Provider(ethereum);
+                    const biactroWhiteListContract = new ethers.Contract(contractAddress, contractABI, provider);
+
+                    const greetingsv001 = await biactroWhiteListContract.getMembers();
+                    this.membersCount = await biactroWhiteListContract.getMemberCount();
+                    this.maxMembers = await biactroWhiteListContract.getMaxMembers();
+
+                    for (const greeting of greetingsv001) {
+                        this.members.push(greeting);
+                    }
+
+                    biactroWhiteListContract.on("newPreFounder", (_wallet, _timestamp) => {
+                      this.members.push([_wallet, _timestamp])
+                      this.membersCount++;
+                      this.$toast.success('¡Nuevo miembro añadido!', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
+                    });
+                }
+                else {
+                    console.log("Ethereum object doesn't exist!");
+                }
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }
     },
 }
 </script>

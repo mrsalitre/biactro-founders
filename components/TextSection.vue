@@ -11,12 +11,12 @@
             <h2
               class="info-title-fade-up font-serif text-4xl text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl lg:pr-10"
             >
-              ¿Cuál será el precio base de cada Biactro Founders NFT?
+              {{ title }}
             </h2>
             <p
               class="info-description-fade-up mt-3 text-base text-gray-700 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 paragraph-mb"
             >
-              El precio base de cada Biatro Founders empezará en 0.015 $ETH, solo las personas que se registren en la whitelist podrán adquirir un Biactro Founders a ese precio en todo momento.
+              {{ description }}
             </p>
             <div
               class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start"
@@ -30,7 +30,7 @@
                   "
                   class="w-full flex items-center justify-center px-8 py-3 border-2 border-biactro text-base leading-6 font-medium rounded-md text-white font-semibold bg-biactro hover:bg-biactro-dark hover:border-biactro-dark focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
                 >
-                  Unirse a la Whitelist
+                  ¡Unirse a la Whitelist!
                 </button>
               </div>
             </div>
@@ -42,7 +42,7 @@
       <img
         loading="lazy"
         class="info-image-fade-up h-56 w-full object-cover sm:h-72 md:h-56 lg:w-full lg:h-full"
-        src="/Megacity_2050.pricesection.jpg"
+        :src="img"
       />
     </div>
   </section>
@@ -50,5 +50,19 @@
 <script>
 export default {
   name: 'TextSection',
+  props: {
+    title: {
+      type: String,
+      default: '',
+    },
+    description: {
+      type: String,
+      default: '',
+    },
+    img: {
+      type: String,
+      default: '/Megacity_2050.pricesection.jpg',
+    }
+  },
 }
 </script>
