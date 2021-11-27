@@ -54,7 +54,7 @@
 </template>
 <script>
 import { ethers } from "ethers";
-import abi from '../static/SayHi.v0.0.1.json'
+import abi from '../static/BiactroWhiteList.json'
 
 export default {
   data() {
