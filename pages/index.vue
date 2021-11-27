@@ -11,11 +11,11 @@
           class="text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10"
         >
           <h2 
-            class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2 biactro-gradient"
+            class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2"
           >
             ¿Qué es un NFT de la colección <span>Biactro Founders</span>?
           </h2>
-          <p class="text-gray-700 text-xl sm:text-2xl biactro-gradient">Un NFT de la colección Biactro Founders es un certificado exclusivo que acredita a la persona que lo posea como <span>miembro fundador de Biactro.</span></p>
+          <p class="text-gray-700 text-xl sm:text-2xl biactro-gradient">Un NFT de la colección Biactro Founders es un certificado exclusivo que acredita a la persona que lo posea como <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">miembro fundador de Biactro.</span></p>
         </div>
         <div class="mt-8 sm:mt-8 sm:flex lg:justify-start">
           <div
@@ -55,9 +55,9 @@
           class="text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10"
         >
           <h2 
-            class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2 biactro-gradient"
+            class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2"
           >
-            ¿A que irá destinado el dinero recolectado de la colección <span>Biactro Founders</span>?
+            ¿A que irá destinado el dinero recolectado de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
           </h2>
           <p class="text-gray-700 text-xl sm:text-2xl biactro-gradient">Los fondos irán destinados a poner en marcha un módulo de gestión de residuos orgánicos, en el lugar del mundo que los miembros de Biactro Founders decidan, única y exclusivamente ellos.</p>
         </div>
