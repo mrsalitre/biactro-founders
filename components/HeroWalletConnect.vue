@@ -115,7 +115,7 @@ export default {
       }
     },
     async signToTheList() {
-      const contractAddress = '0xBF90f11cd232fE2880540D92c9F4EA9938B0BE8D'
+      const contractAddress = '0xB925a1E2438dc3Acf19496EbA241E6dDed17D516'
       const contractABI = abi.abi
       try {
         const { ethereum } = window;
@@ -132,11 +132,13 @@ export default {
           this.mining = false;
 
           this.message = '';
-          this.$emit('new-register');
+          this.$toast.success('¡Cartera registrada!', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
         } else {
           console.log("Ethereum object doesn't exist!");
         }
       } catch (error) {
+        this.$toast.error('No se ha podido registrar esta cartera', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
+        this.mining = false;
         console.log(error)
       }
     }
