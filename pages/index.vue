@@ -179,7 +179,7 @@ export default {
                     });
                 }
                 else {
-                    console.log("Ethereum object doesn't exist!");
+                  alert("Este navegador no soporta ethereum, utiliza metamask!");
                 }
             }
             catch (error) {
