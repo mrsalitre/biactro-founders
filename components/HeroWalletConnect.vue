@@ -39,8 +39,7 @@
             {{ mining ? 'Registrando...' : 'Registrarse' }}
           </button>
           <div v-else-if="!hasMetamask" class="flex flex-wrap">
-            <p class="w-full md:w-auto py-1 px-2 text-red-600 font-semibold text-lg text-center">Necesitas Metamask para acceder</p>
-            <a href="https://metamask.io/" target="_blank" class="w-full md:w-auto py-1 px-2 font-semibold text-lg underline text-center md:text-left md:ml-2 mt-4 md:mt-0">Conseguir Metamask</a>
+            <p class="w-full md:w-auto py-1 px-2 text-red-600 font-semibold text-lg text-center">Necesitas <a href="https://metamask.io/" target="_blank" class="underline">Metamask</a> para acceder</p>
           </div>
         </div>
         <div
