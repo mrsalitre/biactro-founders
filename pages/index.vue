@@ -165,7 +165,6 @@ export default {
                 provider = new ethers.providers.Web3Provider(ethereum);
               } else {
                 provider = ethers.getDefaultProvider(network, { alchemy: 'https://eth-rinkeby.alchemyapi.io/v2/BT7pi_7fVKZ09UIm_uIpvU-iLAOcdfVJ' });
-                console.log("Este navegador no tiene metamask");
               }
             try {
               const biactroWhiteListContract = new ethers.Contract(contractAddress, contractABI, provider);

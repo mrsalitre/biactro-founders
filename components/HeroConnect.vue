@@ -76,17 +76,16 @@ export default {
       currentAccount: null,
       mining: false,
       provider: null,
+      web3Modal: null,
     }
-  },
-  mounted() {
-    this.connectWallet();
   },
   methods: {
     async connectWallet() {
-      const web3Modal = new Web3Modal({
+      this.web3Modal = new Web3Modal({
+        cacheProvider: true,
         providerOptions // required
       });
-      this.provider = await web3Modal.connect()
+      this.provider = await this.web3Modal.connect()
       this.currentAccount = this.provider.selectedAddress;
     },
     async signToTheList() {
