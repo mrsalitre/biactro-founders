@@ -76,22 +76,17 @@ export default {
       currentAccount: null,
       mining: false,
       provider: null,
+      web3Modal: null,
     }
   },
-  mounted() {
-    this.connectWallet();
-  },
   methods: {
-    connectWallet() {
-      const web3Modal = new Web3Modal({
-        network: "rinkeby", // optional
-        cacheProvider: true, // optional
+    async connectWallet() {
+      this.web3Modal = new Web3Modal({
+        cacheProvider: true,
         providerOptions // required
       });
-      web3Modal.connect().then(provider => {
-        this.provider = provider;
-        this.currentAccount = provider.selectedAddress;
-      });
+      this.provider = await this.web3Modal.connect()
+      this.currentAccount = this.provider.selectedAddress;
     },
     async signToTheList() {
       const contractAddress = '0xB925a1E2438dc3Acf19496EbA241E6dDed17D516'

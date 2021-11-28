@@ -86,7 +86,7 @@
         </div>
       </div>
     </div>
-    <TextSection :title="`Personas registradas: ${membersCount}/${maxMembers}`" description="Date prisa y registrate en la Whitelist, el numero se actualiza en tiempo real asi que, estos numeros no duraran mucho tiempo." img="/megaCity.jpg"/>
+    <TextSection :title="`Plazas restantes: ${maxMembers - membersCount}/${maxMembers}`" description="Date prisa y registrate en la Whitelist, el numero se actualiza en tiempo real asi que, estos numeros no duraran mucho tiempo." img="/megaCity.jpg"/>
     <footer class="bg-biactro-dark">
       <div class="max-w-screen-xl mx-auto">
         <div class="relative z-10">
@@ -165,7 +165,6 @@ export default {
                 provider = new ethers.providers.Web3Provider(ethereum);
               } else {
                 provider = ethers.getDefaultProvider(network, { alchemy: 'https://eth-rinkeby.alchemyapi.io/v2/BT7pi_7fVKZ09UIm_uIpvU-iLAOcdfVJ' });
-                console.log("Este navegador no tiene metamask");
               }
             try {
               const biactroWhiteListContract = new ethers.Contract(contractAddress, contractABI, provider);
