@@ -77,6 +77,9 @@ export default {
       mining: false,
     }
   },
+  mounted() {
+    this.connectWallet();
+  },
   methods: {
     connectWallet() {
       const web3Modal = new Web3Modal({
