@@ -53,8 +53,10 @@
   </div>
 </template>
 <script>
+import { ethers } from "ethers";
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Web3Modal from "web3modal";
+import abi from '../static/BiactroWhiteList.json'
 
 const providerOptions = {
     walletconnect: {
@@ -67,14 +69,13 @@ const providerOptions = {
   }
 };
 
-// const provider = await web3Modal.connect();
-
 export default {
   name: 'HeroConnect',
   data() {
     return {
       currentAccount: null,
       mining: false,
+      provider: null,
     }
   },
   mounted() {
@@ -88,8 +89,29 @@ export default {
         providerOptions // required
       });
       web3Modal.connect().then(provider => {
+        this.provider = provider;
         this.currentAccount = provider.selectedAddress;
       });
+    },
+    async signToTheList() {
+      const contractAddress = '0xB925a1E2438dc3Acf19496EbA241E6dDed17D516'
+      const contractABI = abi.abi
+      try {
+          const provider = new ethers.providers.Web3Provider(this.provider);
+          const signer = provider.getSigner();
+          const biactroWhiteListContract = new ethers.Contract(contractAddress, contractABI, signer);
+          const addTxn = await biactroWhiteListContract.addMember({ gasLimit: 300000 });
+          this.mining = true;
+  
+          await addTxn.wait();
+          this.mining = false;
+          this.message = '';
+          this.$toast.success('¡Cartera registrada!', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
+      } catch (error) {
+        this.$toast.error('No se ha podido registrar esta cartera', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
+        this.mining = false;
+        console.log(error)
+      }
     }
   }
 }
