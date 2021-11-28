@@ -158,29 +158,28 @@ export default {
         async getWhiteListData() {
             const contractAddress = "0xB925a1E2438dc3Acf19496EbA241E6dDed17D516";
             const contractABI = abiv001.abi;
+            const network = ethers.providers.getNetwork("rinkeby");
+            const { ethereum } = window;
+            let provider;
+              if (ethereum) {
+                provider = new ethers.providers.Web3Provider(ethereum);
+              } else {
+                provider = ethers.getDefaultProvider(network, { alchemy: 'https://eth-rinkeby.alchemyapi.io/v2/BT7pi_7fVKZ09UIm_uIpvU-iLAOcdfVJ' });
+                console.log("Este navegador no tiene metamask");
+              }
             try {
-                const { ethereum } = window;
-                if (ethereum) {
-                    const provider = new ethers.providers.Web3Provider(ethereum);
-                    const biactroWhiteListContract = new ethers.Contract(contractAddress, contractABI, provider);
-
-                    const greetingsv001 = await biactroWhiteListContract.getMembers();
-                    this.membersCount = await biactroWhiteListContract.getMemberCount();
-                    this.maxMembers = await biactroWhiteListContract.getMaxMembers();
-
-                    for (const greeting of greetingsv001) {
-                        this.members.push(greeting);
-                    }
-
-                    biactroWhiteListContract.on("newPreFounder", (_wallet, _timestamp) => {
-                      this.members.push([_wallet, _timestamp])
-                      this.membersCount++;
-                      this.$toast.success('¡Nuevo miembro añadido!', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
-                    });
-                }
-                else {
-                  alert("Este navegador no soporta ethereum, utiliza metamask!");
-                }
+              const biactroWhiteListContract = new ethers.Contract(contractAddress, contractABI, provider);
+              const greetingsv001 = await biactroWhiteListContract.getMembers();
+              this.membersCount = await biactroWhiteListContract.getMemberCount();
+              this.maxMembers = await biactroWhiteListContract.getMaxMembers();
+              for (const greeting of greetingsv001) {
+                this.members.push(greeting);
+              }
+              biactroWhiteListContract.on("newPreFounder", (_wallet, _timestamp) => {
+                this.members.push([_wallet, _timestamp])
+                this.membersCount++;
+                this.$toast.success('¡Nuevo miembro añadido!', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
+              });
             }
             catch (error) {
                 console.log(error);
