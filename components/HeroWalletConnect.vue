@@ -9,10 +9,10 @@
       <p
         class="lg:w-1/2 italic mt-3 text-base text-gray-600 sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 lg:mx-0"
       >
-      “No queremos dejar el futuro de nuestro planeta a las grandes empresas y lobbies, queremos dejarlo en tus manos.”
+      “No queremos dejar el futuro de nuestro planeta a las grandes empresas y lobbys, queremos dejarlo en tus manos.”
       </p>
       <p class="lg:w-1/2 mt-3 text-base text-gray-800 sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl lg:mx-0 biactro-gradient">
-        Hemos abierto la whitelist para futuros founders de Biactro. Apúntate a la lista cerrada de 100 miembros para tener acceso asegurado a tu certificado NFT <strong><span>único</span></strong> de la colección ‘Biactro Founders’.  
+        Hemos abierto la whitelist para futuros founders de Biactro. Apúntate a la lista cerrada de 100 miembros para tener acceso asegurado a tu certificado NFT <strong><span>único</span></strong> de la colección ‘Biactro´s Founder’.  
       </p>
       <div class="mt-8 sm:mt-8 sm:flex lg:justify-start">
         <div
@@ -38,9 +38,9 @@
           >
             {{ mining ? 'Registrando...' : 'Registrarse' }}
           </button>
-          <div v-else-if="!hasMetamask" class="flex flex-wrap">
-            <p class="w-full md:w-auto py-1 px-2 text-red-600 font-semibold text-lg text-center">Necesitas <a href="https://metamask.io/" target="_blank" class="underline">Metamask</a> para acceder</p>
-          </div>
+          <p v-else-if="!hasMetamask" class="w-full flex items-center text-biactro-dark justify-center px-8 py-3 border-2 border-biactro text-base leading-6 rounded-md font-semibold focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+            Necesitas&nbsp;<a href="https://metamask.io/" target="_blank" class="underline">Metamask</a>&nbsp;para acceder
+          </p>
         </div>
         <div
           class="rounded-md shadow mt-4 md:mt-0 md:ml-4"
