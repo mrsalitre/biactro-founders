@@ -82,16 +82,12 @@ export default {
     this.connectWallet();
   },
   methods: {
-    connectWallet() {
+    async connectWallet() {
       const web3Modal = new Web3Modal({
-        network: "rinkeby", // optional
-        cacheProvider: true, // optional
         providerOptions // required
       });
-      web3Modal.connect().then(provider => {
-        this.provider = provider;
-        this.currentAccount = provider.selectedAddress;
-      });
+      this.provider = await web3Modal.connect()
+      this.currentAccount = this.provider.selectedAddress;
     },
     async signToTheList() {
       const contractAddress = '0xB925a1E2438dc3Acf19496EbA241E6dDed17D516'

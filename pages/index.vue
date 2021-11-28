@@ -86,7 +86,7 @@
         </div>
       </div>
     </div>
-    <TextSection :title="`Personas registradas: ${membersCount}/${maxMembers}`" description="Date prisa y registrate en la Whitelist, el numero se actualiza en tiempo real asi que, estos numeros no duraran mucho tiempo." img="/megaCity.jpg"/>
+    <TextSection :title="`Plazas restantes: ${maxMembers - membersCount}/${maxMembers}`" description="Date prisa y registrate en la Whitelist, el numero se actualiza en tiempo real asi que, estos numeros no duraran mucho tiempo." img="/megaCity.jpg"/>
     <footer class="bg-biactro-dark">
       <div class="max-w-screen-xl mx-auto">
         <div class="relative z-10">
