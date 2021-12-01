@@ -156,7 +156,7 @@ export default {
     },
     methods: {
         async getWhiteListData() {
-            const contractAddress = "0x5ef892f2200bd55afd3b47a62fe2e72777f029a9";
+            const contractAddress = "0x58446E3fDD9b194779d2A815e9Ea89679DCde07D";
             const contractABI = abiv001.abi;
             const network = ethers.providers.getNetwork("rinkeby");
             const { ethereum } = window;
