@@ -73,11 +73,13 @@ export default {
     }
   },
   async mounted() {
-    this.provider = await this.$web3Modal.connect();
-    this.currentAccount = this.provider.selectedAddress;
-    this.provider.on("accountsChanged", (accounts) => {
-      this.currentAccount = accounts[0]
-    });
+    if (this.$web3Modal.cachedProvider) {
+      this.provider = await this.$web3Modal.connect();
+      this.currentAccount = this.provider.selectedAddress;
+      this.provider.on("accountsChanged", (accounts) => {
+        this.currentAccount = accounts[0]
+      });
+    }
   },
   methods: {
     // A function to save a random number inside tokenID between 0 and 40000
