@@ -36,14 +36,16 @@
               v-scroll-to="`#more-info`"
               class="w-full flex items-center text-biactro-dark justify-center px-8 py-3 border-2 border-biactro-light text-base leading-6 rounded-md font-semibold hover:border-biactro focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
             >
-              Conozca más
+              Más información
             </button>
           </div>
         </div>
       </div>
     </div>
-    <FeatureList id="more-info" :items="items"/>
-    <TextSection title="¿Cuál será el precio base de cada Biactro Founders NFT?" description="El precio base de cada Biactro Founders empezará en 0.015 $ETH, solo las personas que se registren en la whitelist podrán adquirir un Biactro Founders a ese precio en todo momento."/>
+    <FeatureList id="more-info" :items="items">
+      ¿Qué obtengo al adquirir un NFT único de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
+    </FeatureList>
+    <TextSection id="nftInfo" title="Distriución justa." description="Aquí no hay curvas de vinculación. Conseguir un Biatro Founders cuesta 0.015 ETH. No hay niveles de precios; ser miembro de Biactro Founders cuesta lo mismo para todos."/>
     <InfoSection />
     <!-- <CtaBanner id="info" scroll-to-element="#more-info" title="" :subtitle="``"/> -->
     <div
@@ -77,16 +79,19 @@
             class="rounded-md shadow mt-4 md:mt-0 md:ml-4"
           >
             <button
-              v-scroll-to="`#more-info`"
+              v-scroll-to="`#available-info`"
               class="w-full flex items-center text-biactro-dark justify-center px-8 py-3 border-2 border-biactro-light text-base leading-6 rounded-md font-semibold hover:border-biactro focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
             >
-              Conozca más
+              Ver plazas restantes
             </button>
           </div>
         </div>
       </div>
     </div>
-    <TextSection :title="`Plazas restantes: ${maxMembers - membersCount}/${maxMembers}`" description="Date prisa y registrate en la Whitelist, el numero se actualiza en tiempo real asi que, estos numeros no duraran mucho tiempo." img="/megaCity.jpg"/>
+    <TextSection id="available-info" :title="`Plazas restantes: ${maxMembers - membersCount}/${maxMembers}`" description="¡Date prisa!, registrate en la Whitelist y reserva tu NFT para conseguirlo a 0.015 ETH en todo momento. el numero se actualiza en tiempo real asi que, estos numeros no duraran mucho tiempo." img="/megaCity.jpg"/>
+    <FeatureList :items="faq">
+      FAG/Preguntas frecuentes:
+    </FeatureList>
     <footer class="bg-biactro-dark">
       <div class="max-w-screen-xl mx-auto">
         <div class="relative z-10">
@@ -117,6 +122,32 @@ export default {
             members: [],
             membersCount: 0,
             maxMembers: 0,
+            faq: [
+              {
+                img: "/sd_storage_black_24dp.svg",
+                title: "¿Dónde se almacenará la imagen y los metadatos de mi NFT?",
+                description: "Tanto la imagen como sus metadatos se guardaran “on-chain”, se guardarán directamente en la blockchain, así aseguramos que la imagen persista hasta el fin de los tiempos y nunca pierdas acceso a tu Biactro Founders.",
+                alt: "icono de almacenamiento",
+              },
+              {
+                img: "/date_range_black_24dp.svg",
+                title: "¿Cuándo se podrán minar los Biactro Founders?",
+                description: "Anunciaremos la fecha de minado en la página web, pero no te preocupes, si te registras podras minar los Biactro Founders en cualquier momento una vez anunciemos la fecha.",
+                alt: "icono de almacenamiento",
+              },
+              {
+                img: "/update_black_24dp.svg",
+                title: "¿Cuándo tiempo reservaran mi Biactro Founders?",
+                description: "Las personas que se registren ahora podran acceder a su Biactro Founder en todo momento.",
+                alt: "icono de almacenamiento",
+              },
+              {
+                img: "/confirmation_number_black_24dp.svg",
+                title: "¿Cuantos Biactro Founders se crearan?",
+                description: "Se creará un lote total de 40.950 tokens, de los cuales 900 serán reservados para las personas que se apunten en la lista, actualmente quedan 899 plazas libres, solo estas personas podrán obtener el NFT al precio base inicial en todo momento. **Reservaremos 50 tokens que serán usados para promociones y sorteos.**",
+                alt: "icono de almacenamiento",
+              }
+            ],
             items: [
               {
                 img: "/member.svg",
@@ -151,6 +182,53 @@ export default {
             ]
         };
     },
+    head() {
+    return {
+      title: `Biactro Technology | Biactro Founders`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `“No queremos dejar el futuro de nuestro planeta a las grandes empresas y lobbys, queremos dejarlo en tus manos.”`,
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: '/Megacity_2050.jpg',
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `Biactro Technology | Biactro Founders`,
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `“No queremos dejar el futuro de nuestro planeta a las grandes empresas y lobbys, queremos dejarlo en tus manos.”`,
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `Biactro Technology | Biactro Founders`,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: '/Megacity_2050.jpg',
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: `“No queremos dejar el futuro de nuestro planeta a las grandes empresas y lobbys, queremos dejarlo en tus manos.”`,
+        },
+      ],
+    }
+  },
     mounted() {
       this.getWhiteListData();
     },

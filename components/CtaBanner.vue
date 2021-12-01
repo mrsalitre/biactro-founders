@@ -10,14 +10,13 @@
       >
         <h2 
           class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2 biactro-gradient"
-          v-html="title"
         >
+          <slot></slot>
         </h2>
         <div
           class="text-gray-700 text-xl sm:text-2xl biactro-gradient"
         >
-         <div v-html="subtitle">
-         </div>
+         <p>{{ subtitle }}</p>
         </div>
       </div>
       <div class="mt-8 sm:mt-8 sm:flex lg:justify-start">
@@ -49,10 +48,6 @@
 export default {
   name: 'CtaBanner',
   props: {
-    title: {
-      type: String,
-      default: '',
-    },
     subtitle: {
       type: String,
       default: '',
