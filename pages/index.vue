@@ -14,9 +14,9 @@
           <h2 
             class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2"
           >
-            ¿Qué es un NFT único de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro´s Founder</span>?
+            ¿Qué es un NFT único de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
           </h2>
-          <p class="text-gray-700 text-xl sm:text-2xl biactro-gradient">Un NFT de la colección Biactro´s Founder es un certificado exclusivo que acredita a la persona que lo posea como <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">miembro fundador de Biactro.</span></p>
+          <p class="text-gray-700 text-xl sm:text-2xl biactro-gradient">Un NFT de la colección Biactro Founders es un certificado exclusivo que acredita a la persona que lo posea como <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">miembro fundador de Biactro.</span></p>
         </div>
         <div class="mt-8 sm:mt-8 sm:flex lg:justify-start">
           <div
@@ -43,7 +43,7 @@
       </div>
     </div>
     <FeatureList id="more-info" :items="items"/>
-    <TextSection title="¿Cuál será el precio base de cada Biactro´s Founder NFT?" description="El precio base de cada Biactro´s Founder empezará en 0.015 $ETH, solo las personas que se registren en la whitelist podrán adquirir un Biactro´s Founder a ese precio en todo momento."/>
+    <TextSection title="¿Cuál será el precio base de cada Biactro Founders NFT?" description="El precio base de cada Biactro Founders empezará en 0.015 $ETH, solo las personas que se registren en la whitelist podrán adquirir un Biactro Founders a ese precio en todo momento."/>
     <InfoSection />
     <!-- <CtaBanner id="info" scroll-to-element="#more-info" title="" :subtitle="``"/> -->
     <div
@@ -58,9 +58,9 @@
           <h2 
             class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2"
           >
-            ¿A que irá destinado el dinero recolectado de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro´s Founder</span>?
+            ¿A que irá destinado el dinero recolectado de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
           </h2>
-          <p class="text-gray-700 text-xl sm:text-2xl biactro-gradient">Los fondos irán destinados a poner en marcha un módulo de gestión de residuos orgánicos, en el lugar del mundo que los miembros de Biactro´s Founder decidan, única y exclusivamente ellos.</p>
+          <p class="text-gray-700 text-xl sm:text-2xl biactro-gradient">Los fondos irán destinados a poner en marcha un módulo de gestión de residuos orgánicos, en el lugar del mundo que los miembros de Biactro Founders decidan, única y exclusivamente ellos.</p>
         </div>
         <div class="mt-8 sm:mt-8 sm:flex lg:justify-start">
           <div
@@ -120,8 +120,8 @@ export default {
             items: [
               {
                 img: "/member.svg",
-                title: "Miembro de Biactro´s Founder",
-                description: "Cuando obtienes un Biactro´s Founder NFT, estas adquiriendo algo más que un certificado. Obtendrás acceso como miembro de un club cuyos beneficios y ofertas aumentarán con el tiempo: newsletter exclusivas, merchandising, acceso a eventos privados, charlas y mucho más. Si posees un certificado tendrás acceso a todos estos beneficios actuales y aquellos que añadamos en el futuro.",
+                title: "Miembro de Biactro Founders",
+                description: "Cuando obtienes un Biactro Founders NFT, estas adquiriendo algo más que un certificado. Obtendrás acceso como miembro de un club cuyos beneficios y ofertas aumentarán con el tiempo: newsletter exclusivas, merchandising, acceso a eventos privados, charlas y mucho más. Si posees un certificado tendrás acceso a todos estos beneficios actuales y aquellos que añadamos en el futuro.",
                 alt: "member icon",
               },
               {
