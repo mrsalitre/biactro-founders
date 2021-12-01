@@ -12,7 +12,7 @@
       “No queremos dejar el futuro de nuestro planeta a las grandes empresas y lobbys, queremos dejarlo en tus manos.”
       </p>
       <p class="lg:w-1/2 mt-3 text-base text-gray-800 sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl lg:mx-0 biactro-gradient">
-        Hemos abierto la whitelist para futuros founders de Biactro. Apúntate a la lista cerrada de 100 miembros para tener acceso asegurado a tu certificado NFT <strong><span>único</span></strong> de la colección ‘Biactro´s Founder’.  
+        Hemos abierto la whitelist para futuros founders de Biactro. Apúntate a la lista cerrada de 950 miembros para tener acceso asegurado a tu certificado NFT <strong><span>único</span></strong> de la colección ‘Biactro´s Founder’.  
       </p>
       <div class="mt-8 sm:mt-8 sm:flex lg:justify-start">
         <div
