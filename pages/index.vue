@@ -182,6 +182,53 @@ export default {
             ]
         };
     },
+    head() {
+    return {
+      title: `Biactro Technology | Biactro Founders`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `“No queremos dejar el futuro de nuestro planeta a las grandes empresas y lobbys, queremos dejarlo en tus manos.”`,
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: '/Megacity_2050.jpg',
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `Biactro Technology | Biactro Founders`,
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `“No queremos dejar el futuro de nuestro planeta a las grandes empresas y lobbys, queremos dejarlo en tus manos.”`,
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: `Biactro Technology | Biactro Founders`,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: '/Megacity_2050.jpg',
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: `“No queremos dejar el futuro de nuestro planeta a las grandes empresas y lobbys, queremos dejarlo en tus manos.”`,
+        },
+      ],
+    }
+  },
     mounted() {
       this.getWhiteListData();
     },
