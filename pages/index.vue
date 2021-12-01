@@ -45,7 +45,7 @@
     <FeatureList id="more-info" :items="items">
       ¿Qué obtengo al adquirir un NFT único de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
     </FeatureList>
-    <TextSection id="nftInfo" title="Distriución justa." description="Aquí no hay curvas de vinculación. Conseguir un Biatro Founders cuesta 0.015 ETH. No hay niveles de precios; ser miembro de Biactro Founders cuesta lo mismo para todos."/>
+    <TextSection id="nftInfo" title="Distribución justa." description="Aquí no hay curvas de vinculación. Conseguir un Biatro Founders cuesta 0.015 ETH. No hay niveles de precios; ser miembro de Biactro Founders cuesta lo mismo para todos."/>
     <InfoSection />
     <!-- <CtaBanner id="info" scroll-to-element="#more-info" title="" :subtitle="``"/> -->
     <div
