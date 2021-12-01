@@ -12,9 +12,15 @@
       “No queremos dejar el futuro de nuestro planeta a las grandes empresas y lobbys, queremos dejarlo en tus manos.”
       </p>
       <p class="lg:w-1/2 mt-3 text-base text-gray-800 sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl lg:mx-0 biactro-gradient">
-        Hemos abierto la whitelist para futuros founders de Biactro. Apúntate a la lista cerrada de 950 miembros para tener acceso asegurado a tu certificado NFT <strong><span>único</span></strong> de la colección ‘Biactro´s Founder’.  
+        Hemos abierto la whitelist para futuros founders de Biactro. Apúntate a la lista cerrada de 900 miembros para tener acceso asegurado a tu certificado NFT <strong><span>único</span></strong> de la colección ‘Biactro Founders’.  
       </p>
-      <div class="mt-8 sm:mt-8 sm:flex lg:justify-start">
+      <div class="mt-4 sm:flex sm:flex-wrap lg:justify-start">
+          <div v-if="currentAccount !== null" class="w-full">
+            <div class="relative my-4 max-w-sm"> 
+              <input v-model="tokenID" type="text" class="border-2 border-gray-300 rounded-md h-14 w-full pr-8 pl-5 rounded z-0 focus:outline-none" placeholder="Escribe tu numero favorito">
+              <div class="absolute top-4 right-3 text-gray-500 cursor-pointer" @click="randomNumber()"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" class="fill-current"><path d="M0 0h24v24H0zm21.02 19c0 1.1-.9 2-2 2h-14c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v14z" fill="none"/><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM7.5 18c-.83 0-1.5-.67-1.5-1.5S6.67 15 7.5 15s1.5.67 1.5 1.5S8.33 18 7.5 18zm0-9C6.67 9 6 8.33 6 7.5S6.67 6 7.5 6 9 6.67 9 7.5 8.33 9 7.5 9zm4.5 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5 4.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm0-9c-.83 0-1.5-.67-1.5-1.5S15.67 6 16.5 6s1.5.67 1.5 1.5S17.33 9 16.5 9z"/></svg></div>
+            </div>
+          </div>
         <div
           class="rounded-md shadow"
         >
@@ -63,6 +69,7 @@ export default {
       currentAccount: null,
       mining: false,
       provider: null,
+      tokenID: null,
     }
   },
   async mounted() {
@@ -73,6 +80,10 @@ export default {
     });
   },
   methods: {
+    // A function to save a random number inside tokenID between 0 and 40000
+    randomNumber() {
+      this.tokenID = Math.floor(Math.random() * 40000);
+    },
     async connectWallet() {
       if (this.$web3Modal.cachedProvider) {
         this.provider = await this.$web3Modal.connect();
@@ -83,13 +94,13 @@ export default {
       }
     },
     async signToTheList() {
-      const contractAddress = '0xB925a1E2438dc3Acf19496EbA241E6dDed17D516'
+      const contractAddress = '0x58446E3fDD9b194779d2A815e9Ea89679DCde07D'
       const contractABI = abi.abi
       try {
           const provider = new ethers.providers.Web3Provider(this.provider);
           const signer = provider.getSigner();
           const biactroWhiteListContract = new ethers.Contract(contractAddress, contractABI, signer);
-          const addTxn = await biactroWhiteListContract.addMember({ gasLimit: 300000 });
+          const addTxn = await biactroWhiteListContract.addMember(this.tokenID, { gasLimit: 300000 });
           this.mining = true;
   
           await addTxn.wait();
