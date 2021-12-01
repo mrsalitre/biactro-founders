@@ -54,20 +54,7 @@
 </template>
 <script>
 import { ethers } from "ethers";
-import WalletConnectProvider from "@walletconnect/web3-provider";
-import Web3Modal from "web3modal";
 import abi from '../static/BiactroWhiteList.json'
-
-const providerOptions = {
-    walletconnect: {
-        package: WalletConnectProvider, // required
-    options: {
-        rpc: {
-          4:  "https://eth-rinkeby.alchemyapi.io/v2/BT7pi_7fVKZ09UIm_uIpvU-iLAOcdfVJ"
-        },
-    }
-  }
-};
 
 export default {
   name: 'HeroConnect',
@@ -76,17 +63,24 @@ export default {
       currentAccount: null,
       mining: false,
       provider: null,
-      web3Modal: null,
     }
+  },
+  async mounted() {
+    this.provider = await this.$web3Modal.connect();
+    this.currentAccount = this.provider.selectedAddress;
+    this.provider.on("accountsChanged", (accounts) => {
+      this.currentAccount = accounts[0]
+    });
   },
   methods: {
     async connectWallet() {
-      this.web3Modal = new Web3Modal({
-        cacheProvider: true,
-        providerOptions // required
-      });
-      this.provider = await this.web3Modal.connect()
-      this.currentAccount = this.provider.selectedAddress;
+      if (this.$web3Modal.cachedProvider) {
+        this.provider = await this.$web3Modal.connect();
+        this.currentAccount = this.provider.selectedAddress;
+      } else {
+        this.provider = await this.$web3Modal.connect();
+        this.currentAccount = this.provider.selectedAddress;
+      }
     },
     async signToTheList() {
       const contractAddress = '0xB925a1E2438dc3Acf19496EbA241E6dDed17D516'
