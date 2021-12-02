@@ -131,6 +131,12 @@ export default {
                 alt: "icono de almacenamiento",
               },
               {
+                img: "/public_black_24dp.svg",
+                title: "¿Qué blockchain se usará para este proyecto?",
+                description: "Este proyecto usará la blockchain de Ethereum para realizar las transacciones, Ethereum es la red de blockchain con más respaldo actualmente. Queremos que este proyecto sea lo más inclusivo posible así que de ser necesario optariamos por redes con un menor costo de transacciones como Solana.",
+                alt: "icono de almacenamiento",
+              },
+              {
                 img: "/date_range_black_24dp.svg",
                 title: "¿Cuándo se podrán minar los Biactro Founders?",
                 description: "Anunciaremos la fecha de minado en la página web, pero no te preocupes, si te registras podras minar los Biactro Founders en cualquier momento una vez anunciemos la fecha.",
