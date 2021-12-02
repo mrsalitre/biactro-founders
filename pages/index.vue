@@ -171,7 +171,7 @@ export default {
               {
                 img: "/savings_black_24dp.svg",
                 title: "Beneficios económicos",
-                description: "Los miembros de Biactro Founders recibiran el 1% de los beneficios netos de las ventas mundiales, poseer un NFT de la colección Biactro Founders garantiza a su propietario recibir una compensación económica resultado de la implantación de la tecnología, independientemente del país de implantación.",
+                description: "Los miembros de Biactro Founders recibiran el 1% de los beneficios netos de las ventas mundiales, poseer un NFT de la colección Biactro Founders garantiza a su propietario recibir una compensación económica resultado de la implantación de la tecnología, independientemente del país de implantación. Ademas tambien se asegura un porcentaje por kilo vendido de fertilizante de Biactro.",
                 alt: "Say Hi",
               },
               {
