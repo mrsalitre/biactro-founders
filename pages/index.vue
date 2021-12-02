@@ -42,7 +42,8 @@
         </div>
       </div>
     </div>
-    <FeatureList id="more-info" :items="items">
+    <InfoSection id="more-info" title="BIACTRO® (MTD) Mejor Tecnología Disponible. Comprometidos con la Reducción de la Huella de Carbono." description="Tras un bagaje profesional de sólida experiencia en las actividades de I+D+i establecido en planes desde su inicio hasta su puesta en marcha, la empresa, ha ido conformando el desarrollo para la promoción de varios proyectos pioneros, dando respuesta tangible a la problemática del deterioro medioambiental con la creación de nuevos modelos productivos y de desarrollo sostenible dedicado a la industria de cultivos intensivos ecológicos, tratamiento de residuos y valorización energética." />
+    <FeatureList :items="items">
       ¿Qué obtengo al adquirir un NFT único de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
     </FeatureList>
     <TextSection id="nftInfo" title="Distribución justa." description="Aquí no hay curvas de vinculación. Conseguir un Biatro Founders cuesta 0.015 ETH. No hay niveles de precios; ser miembro de Biactro Founders cuesta lo mismo para todos."/>
