@@ -145,7 +145,7 @@ export default {
               {
                 img: "/confirmation_number_black_24dp.svg",
                 title: "¿Cuantos Biactro Founders se crearan?",
-                description: "Se creará un lote total de 40.950 tokens, de los cuales 900 serán reservados para las personas que se apunten en la lista, actualmente quedan 899 plazas libres, solo estas personas podrán obtener el NFT al precio base inicial en todo momento. **Reservaremos 50 tokens que serán usados para promociones y sorteos.**",
+                description: `Se creará un lote total de 40.950 tokens, de los cuales 900 serán reservados para las personas que se apunten en la lista, actualmente quedan ${this.maxMembers - this.membersCount} plazas libres, solo estas personas podrán obtener el NFT al precio base inicial en todo momento. **Reservaremos 50 tokens que serán usados para promociones y sorteos.**`,
                 alt: "icono de almacenamiento",
               }
             ],
