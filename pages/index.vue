@@ -125,34 +125,40 @@ export default {
             maxMembers: 0,
             faq: [
               {
+                img: "/request_quote_black_24dp.svg",
+                title: "¿Cómo se asegura que los beneficios seran repartidos?",
+                description: "En Biactro Technology creemos que la tecnología puede ayudarnos a conseguir un futuro mejor, por este motivo empleamos la tecnología “smart contracts” de Ethereum. Este “contrato inteligente” será programado para repartir de manera automática los beneficios entre todos los propietarios de un Biactro Founders NFT, sin la intervención de ninguna persona u organismo. Todas las personas podrán consultar este contrato inteligente y sus funcionalidades de forma pública.",
+                alt: "icono de fecha",
+              },
+              {
+                img: "/public_black_24dp.svg",
+                title: "¿Qué blockchain se usará para este proyecto?",
+                description: "Este proyecto usará la blockchain de Ethereum para realizar las transacciones, Ethereum es la red de blockchain con más respaldo actualmente. Queremos que este proyecto sea lo más inclusivo posible así que de ser necesario optariamos por redes con un menor costo de transacciones como Polygon o Solana.",
+                alt: "icono de mundo",
+              },
+              {
                 img: "/sd_storage_black_24dp.svg",
                 title: "¿Dónde se almacenará la imagen y los metadatos de mi NFT?",
                 description: "Tanto la imagen como sus metadatos se guardaran “on-chain”, se guardarán directamente en la blockchain, así aseguramos que la imagen persista hasta el fin de los tiempos y nunca pierdas acceso a tu Biactro Founders.",
                 alt: "icono de almacenamiento",
               },
               {
-                img: "/public_black_24dp.svg",
-                title: "¿Qué blockchain se usará para este proyecto?",
-                description: "Este proyecto usará la blockchain de Ethereum para realizar las transacciones, Ethereum es la red de blockchain con más respaldo actualmente. Queremos que este proyecto sea lo más inclusivo posible así que de ser necesario optariamos por redes con un menor costo de transacciones como Solana.",
-                alt: "icono de almacenamiento",
-              },
-              {
                 img: "/date_range_black_24dp.svg",
                 title: "¿Cuándo se podrán minar los Biactro Founders?",
                 description: "Anunciaremos la fecha de minado en la página web, pero no te preocupes, si te registras podras minar los Biactro Founders en cualquier momento una vez anunciemos la fecha.",
-                alt: "icono de almacenamiento",
+                alt: "icono de minado",
               },
               {
                 img: "/update_black_24dp.svg",
                 title: "¿Cuándo tiempo reservaran mi Biactro Founders?",
                 description: "Las personas que se registren ahora podran acceder a su Biactro Founder en todo momento.",
-                alt: "icono de almacenamiento",
+                alt: "icono de update",
               },
               {
                 img: "/confirmation_number_black_24dp.svg",
                 title: "¿Cuantos Biactro Founders se crearan?",
                 description: "Se creará un lote total de 40.950 tokens, de los cuales 900 serán reservados para las personas que se apunten en la lista, solo estas personas podrán obtener el NFT al precio base inicial en todo momento. **Reservaremos 50 tokens que serán usados para promociones y sorteos.**",
-                alt: "icono de almacenamiento",
+                alt: "icono de confirmacion",
               }
             ],
             items: [
@@ -165,7 +171,7 @@ export default {
               {
                 img: "/savings_black_24dp.svg",
                 title: "Beneficios económicos",
-                description: "Los miembros de Biactro Founders recibiran el 1% de los beneficios netos de las ventas mundiales, poseer un NFT de la colección Biactro Founders garantiza a su propietario recibir una compensación economica resultado de la implantación de la tecnología, independientemente del pais de implantación.",
+                description: "Los miembros de Biactro Founders recibiran el 1% de los beneficios netos de las ventas mundiales, poseer un NFT de la colección Biactro Founders garantiza a su propietario recibir una compensación económica resultado de la implantación de la tecnología, independientemente del país de implantación. Ademas tambien se asegura un porcentaje por kilo vendido de fertilizante de Biactro.",
                 alt: "Say Hi",
               },
               {
