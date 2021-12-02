@@ -30,7 +30,7 @@
             </button>
           </div>
           <div
-            class="rounded-md shadow mt-4 md:mt-0 md:ml-4"
+            class="rounded-md shadow sm:ml-4"
           >
             <button
               v-scroll-to="`#more-info`"
@@ -77,7 +77,7 @@
             </button>
           </div>
           <div
-            class="rounded-md shadow mt-4 md:mt-0 md:ml-4"
+            class="rounded-md shadow sm:ml-4"
           >
             <button
               v-scroll-to="`#available-info`"
@@ -161,6 +161,12 @@ export default {
                 title: "Miembro de Biactro Founders",
                 description: "Cuando obtienes un Biactro Founders NFT, estas adquiriendo algo más que un certificado. Obtendrás acceso como miembro de un club cuyos beneficios y ofertas aumentarán con el tiempo: newsletter exclusivas, merchandising, acceso a eventos privados, charlas y mucho más. Si posees un certificado tendrás acceso a todos estos beneficios actuales y aquellos que añadamos en el futuro.",
                 alt: "member icon",
+              },
+              {
+                img: "/savings_black_24dp.svg",
+                title: "Beneficios económicos",
+                description: "Los miembros de Biactro Founders recibiran el 1% de los beneficios netos de las ventas mundiales, poseer un NFT de la colección Biactro Founders garantiza a su propietario recibir una compensación economica resultado de la implantación de la tecnología, independientemente del pais de implantación.",
+                alt: "Say Hi",
               },
               {
                 img: "/amba.svg",
