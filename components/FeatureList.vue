@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-iberinsect-white">
-    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-32">
+  <div class="bg-biactro-white">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-24">
       <h2
         class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2"
       >
