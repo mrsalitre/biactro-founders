@@ -30,7 +30,7 @@
             </button>
           </div>
           <div
-            class="rounded-md shadow sm:ml-4"
+            class="rounded-md shadow sm:ml-4 mt-4 sm:mt-0"
           >
             <button
               v-scroll-to="`#more-info`"
@@ -77,7 +77,7 @@
             </button>
           </div>
           <div
-            class="rounded-md shadow sm:ml-4"
+            class="rounded-md shadow sm:ml-4 mt-4 sm:mt-0"
           >
             <button
               v-scroll-to="`#available-info`"
