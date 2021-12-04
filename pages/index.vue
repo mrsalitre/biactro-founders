@@ -91,7 +91,7 @@
     </div>
     <TextSection id="available-info" :title="`Plazas restantes: ${maxMembers - membersCount}/${maxMembers}`" description="¡Date prisa!, registrate en la Whitelist y reserva tu NFT para conseguirlo a 0.015 ETH en todo momento. el numero se actualiza en tiempo real asi que, estos numeros no duraran mucho tiempo." img="/megaCity.jpg"/>
     <FeatureList :items="faq">
-      FAG/Preguntas frecuentes:
+      FAQ/Preguntas frecuentes:
     </FeatureList>
     <footer class="bg-biactro-dark">
       <div class="max-w-screen-xl mx-auto">
