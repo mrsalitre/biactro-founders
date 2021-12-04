@@ -91,7 +91,7 @@
     </div>
     <TextSection id="available-info" :title="`Plazas restantes: ${maxMembers - membersCount}/${maxMembers}`" description="¡Date prisa!, registrate en la Whitelist y reserva tu NFT para conseguirlo a 0.015 ETH en todo momento. el numero se actualiza en tiempo real asi que, estos numeros no duraran mucho tiempo." img="/megaCity.jpg"/>
     <FeatureList :items="faq">
-      FAG/Preguntas frecuentes:
+      FAQ/Preguntas frecuentes:
     </FeatureList>
     <footer class="bg-biactro-dark">
       <div class="max-w-screen-xl mx-auto">
@@ -172,37 +172,37 @@ export default {
                 img: "/member.svg",
                 title: "Miembro de Biactro Founders",
                 description: "Cuando obtienes un Biactro Founders NFT, estas adquiriendo algo más que un certificado. Obtendrás acceso como miembro de un club cuyos beneficios y ofertas aumentarán con el tiempo: newsletter exclusivas, merchandising, acceso a eventos privados, charlas y mucho más. Si posees un certificado tendrás acceso a todos estos beneficios actuales y aquellos que añadamos en el futuro.",
-                alt: "member icon",
+                alt: "icono de miembro",
               },
               {
                 img: "/savings_black_24dp.svg",
                 title: "Beneficios económicos",
-                description: "Los miembros de Biactro Founders recibiran el 1% de los beneficios netos de las ventas mundiales, poseer un NFT de la colección Biactro Founders garantiza a su propietario recibir una compensación económica resultado de la implantación de la tecnología, independientemente del país de implantación. Ademas tambien se asegura un porcentaje por kilo vendido de fertilizante de Biactro.",
-                alt: "Say Hi",
+                description: "Los miembros de Biactro Founders recibiran el 1% de los beneficios netos de las ventas mundiales, poseer un NFT de la colección Biactro Founders garantiza a su propietario recibir una compensación económica resultado de la implantación de la tecnología, independientemente del país de implantación. Ademas tambien se asegura un porcentaje por kilo vendido de fertilizante de marca Biactro.",
+                alt: "icono de beneficios",
               },
               {
                 img: "/amba.svg",
                 title: "Ambassador de Biactro",
                 description: "Tendrás el derecho de poder intermediar con aquellos organismos públicos o privados que deseen usar la tecnología en tu lugar de origen. Obteniendo parte de los beneficios de explotación; una vez hayas asistido a nuestras reuniones formativas gratuitas y obtengas el beneplácito de la mayoría de los founders.",
-                alt: "Say Hi",
+                alt: "icono de embajador",
               },
               {
                 img: "/tree.svg",
                 title: "Tu árbol",
                 description: "Parte de los beneficios de cada token servirá para plantar un árbol, no se plantará cualquier tipo de árbol si no aquellos autorizados para la zona y que no afecten al ecosistema local.",
-                alt: "Say Hi",
+                alt: "Icono de arbol",
               },
               {
                 img: "/offer.svg",
                 title: "Descuentos y ofertas",
                 description: "Podrás acceder a un descuento y ofertas exclusivas si deseas implementar la tecnología para el beneficio de tu comunidad, o en el merchandising.",
-                alt: "Say Hi",
+                alt: "icono de oferta",
               },
               {
                 img: "/chat.svg",
                 title: "Chat privado",
                 description: "Obtendrás acceso al chat privado de Biactro donde podrás contactar con otros fundadores. Solo aquellos que posean un NFT de la colección podrán acceder a este chat exclusivo.",
-                alt: "Say Hi",
+                alt: "icono de chat",
               }
             ]
         };
