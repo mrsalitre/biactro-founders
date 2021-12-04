@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeroConnect id="hero" :current-account="currentAccount" :mining="mining" @sign-whitelist="signToTheList($event)"/>
+    <HeroConnect id="hero" :current-account="currentAccount" :mining="mining" @sign-whitelist="signToTheList($event)" @connect-wallet="connectWallet()"/>
     <div
       id="info"
       class="bg-biactro-white"

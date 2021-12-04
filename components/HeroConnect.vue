@@ -83,7 +83,9 @@ export default {
       // emit an event called sign
       this.$emit('sign-whitelist', this.tokenID)
     },
-    connectWallet() {}
+    connectWallet() {
+      this.$emit('connect-wallet')
+    }
   }
 }
 </script>
