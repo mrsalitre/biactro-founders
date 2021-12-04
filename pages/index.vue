@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeroConnect id="hero"/>
+    <HeroConnect id="hero" :current-account="currentAccount" :mining="mining" @sign-whitelist="signToTheList($event)"/>
     <div
       id="info"
       class="bg-biactro-white"
@@ -115,97 +115,101 @@
 </template>
 <script>
 import { ethers } from "ethers";
-import abiv001 from '../static/BiactroWhiteList.json'
+import abi from '../static/BiactroWhiteList.json'
 
 export default {
     data() {
-        return {
-            members: [],
-            membersCount: 0,
-            maxMembers: 0,
-            faq: [
-              {
-                img: "/request_quote_black_24dp.svg",
-                title: "¿Cómo se asegura que los beneficios seran repartidos?",
-                description: "En Biactro Technology creemos que la tecnología puede ayudarnos a conseguir un futuro mejor, por este motivo empleamos la tecnología “smart contracts” de Ethereum. Este “contrato inteligente” será programado para repartir de manera automática los beneficios entre todos los propietarios de un Biactro Founders NFT, sin la intervención de ninguna persona u organismo. Todas las personas podrán consultar este contrato inteligente y sus funcionalidades de forma pública.",
-                alt: "icono de fecha",
-              },
-              {
-                img: "/public_black_24dp.svg",
-                title: "¿Qué blockchain se usará para este proyecto?",
-                description: "Este proyecto usará la blockchain de Ethereum para realizar las transacciones, Ethereum es la red de blockchain con más respaldo actualmente. Queremos que este proyecto sea lo más inclusivo posible así que de ser necesario optariamos por redes con un menor costo de transacciones como Polygon o Solana.",
-                alt: "icono de mundo",
-              },
-              {
-                img: "/sd_storage_black_24dp.svg",
-                title: "¿Dónde se almacenará la imagen y los metadatos de mi NFT?",
-                description: "Tanto la imagen como sus metadatos se guardaran “on-chain”, se guardarán directamente en la blockchain, así aseguramos que la imagen persista hasta el fin de los tiempos y nunca pierdas acceso a tu Biactro Founders.",
-                alt: "icono de almacenamiento",
-              },
-              {
-                img: "/date_range_black_24dp.svg",
-                title: "¿Cuándo se podrán minar los Biactro Founders?",
-                description: "Anunciaremos la fecha de minado en la página web, pero no te preocupes, si te registras podras minar los Biactro Founders en cualquier momento una vez anunciemos la fecha.",
-                alt: "icono de minado",
-              },
-              {
-                img: "/inventory_2_black_24dp.svg",
-                title: "¿Existe un límite de Biactro Founders NFT por cartera?",
-                description: "No, cada cartera podrá minar y poseer los Biactro Founders que desee, sin embargo el contrato estará programado para minar un solo Biactro Founders a la vez. Programaremos el contrato de esta forma para evitar que una sola persona o empresa con mucho capital compre la mayoría del stock en pocas transacciones.",
-                alt: "icono de minado",
-              },
-              {
-                img: "/update_black_24dp.svg",
-                title: "¿Cuándo tiempo reservaran mi Biactro Founders?",
-                description: "Las personas que se registren ahora podran acceder a su Biactro Founder en todo momento.",
-                alt: "icono de update",
-              },
-              {
-                img: "/confirmation_number_black_24dp.svg",
-                title: "¿Cuantos Biactro Founders se crearan?",
-                description: "Se creará un lote total de 40.950 tokens, de los cuales 900 serán reservados para las personas que se apunten en la lista, solo estas personas podrán obtener el NFT al precio base inicial en todo momento. **Reservaremos 50 tokens que serán usados para promociones y sorteos.**",
-                alt: "icono de confirmacion",
-              }
-            ],
-            items: [
-              {
-                img: "/member.svg",
-                title: "Miembro de Biactro Founders",
-                description: "Cuando obtienes un Biactro Founders NFT, estas adquiriendo algo más que un certificado. Obtendrás acceso como miembro de un club cuyos beneficios y ofertas aumentarán con el tiempo: newsletter exclusivas, merchandising, acceso a eventos privados, charlas y mucho más. Si posees un certificado tendrás acceso a todos estos beneficios actuales y aquellos que añadamos en el futuro.",
-                alt: "icono de miembro",
-              },
-              {
-                img: "/savings_black_24dp.svg",
-                title: "Beneficios económicos",
-                description: "Los miembros de Biactro Founders recibiran el 1% de los beneficios netos de las ventas mundiales, poseer un NFT de la colección Biactro Founders garantiza a su propietario recibir una compensación económica resultado de la implantación de la tecnología, independientemente del país de implantación. Ademas tambien se asegura un porcentaje por kilo vendido de fertilizante de marca Biactro.",
-                alt: "icono de beneficios",
-              },
-              {
-                img: "/amba.svg",
-                title: "Ambassador de Biactro",
-                description: "Tendrás el derecho de poder intermediar con aquellos organismos públicos o privados que deseen usar la tecnología en tu lugar de origen. Obteniendo parte de los beneficios de explotación; una vez hayas asistido a nuestras reuniones formativas gratuitas y obtengas el beneplácito de la mayoría de los founders.",
-                alt: "icono de embajador",
-              },
-              {
-                img: "/tree.svg",
-                title: "Tu árbol",
-                description: "Parte de los beneficios de cada token servirá para plantar un árbol, no se plantará cualquier tipo de árbol si no aquellos autorizados para la zona y que no afecten al ecosistema local.",
-                alt: "Icono de arbol",
-              },
-              {
-                img: "/offer.svg",
-                title: "Descuentos y ofertas",
-                description: "Podrás acceder a un descuento y ofertas exclusivas si deseas implementar la tecnología para el beneficio de tu comunidad, o en el merchandising.",
-                alt: "icono de oferta",
-              },
-              {
-                img: "/chat.svg",
-                title: "Chat privado",
-                description: "Obtendrás acceso al chat privado de Biactro donde podrás contactar con otros fundadores. Solo aquellos que posean un NFT de la colección podrán acceder a este chat exclusivo.",
-                alt: "icono de chat",
-              }
-            ]
-        };
+      return {
+        currentAccount: null,
+        contractAddress: '0x58446E3fDD9b194779d2A815e9Ea89679DCde07D',
+        mining: false,
+        provider: null,
+        membersCount: 0,
+        maxMembers: 0,
+        biactroWhiteListContract: null,
+        faq: [
+          {
+            img: "/request_quote_black_24dp.svg",
+            title: "¿Cómo se asegura que los beneficios seran repartidos?",
+            description: "En Biactro Technology creemos que la tecnología puede ayudarnos a conseguir un futuro mejor, por este motivo empleamos la tecnología “smart contracts” de Ethereum. Este “contrato inteligente” será programado para repartir de manera automática los beneficios entre todos los propietarios de un Biactro Founders NFT, sin la intervención de ninguna persona u organismo. Todas las personas podrán consultar este contrato inteligente y sus funcionalidades de forma pública.",
+            alt: "icono de fecha",
+          },
+          {
+            img: "/public_black_24dp.svg",
+            title: "¿Qué blockchain se usará para este proyecto?",
+            description: "Este proyecto usará la blockchain de Ethereum para realizar las transacciones, Ethereum es la red de blockchain con más respaldo actualmente. Queremos que este proyecto sea lo más inclusivo posible así que de ser necesario optariamos por redes con un menor costo de transacciones como Polygon o Solana.",
+            alt: "icono de mundo",
+          },
+          {
+            img: "/sd_storage_black_24dp.svg",
+            title: "¿Dónde se almacenará la imagen y los metadatos de mi NFT?",
+            description: "Tanto la imagen como sus metadatos se guardaran “on-chain”, se guardarán directamente en la blockchain, así aseguramos que la imagen persista hasta el fin de los tiempos y nunca pierdas acceso a tu Biactro Founders.",
+            alt: "icono de almacenamiento",
+          },
+          {
+            img: "/date_range_black_24dp.svg",
+            title: "¿Cuándo se podrán minar los Biactro Founders?",
+            description: "Anunciaremos la fecha de minado en la página web, pero no te preocupes, si te registras podras minar los Biactro Founders en cualquier momento una vez anunciemos la fecha.",
+            alt: "icono de minado",
+          },
+          {
+            img: "/inventory_2_black_24dp.svg",
+            title: "¿Existe un límite de Biactro Founders NFT por cartera?",
+            description: "No, cada cartera podrá minar y poseer los Biactro Founders que desee, sin embargo el contrato estará programado para minar un solo Biactro Founders a la vez. Programaremos el contrato de esta forma para evitar que una sola persona o empresa con mucho capital compre la mayoría del stock en pocas transacciones.",
+            alt: "icono de minado",
+          },
+          {
+            img: "/update_black_24dp.svg",
+            title: "¿Cuándo tiempo reservaran mi Biactro Founders?",
+            description: "Las personas que se registren ahora podran acceder a su Biactro Founder en todo momento.",
+            alt: "icono de update",
+          },
+          {
+            img: "/confirmation_number_black_24dp.svg",
+            title: "¿Cuantos Biactro Founders se crearan?",
+            description: "Se creará un lote total de 40.950 tokens, de los cuales 900 serán reservados para las personas que se apunten en la lista, solo estas personas podrán obtener el NFT al precio base inicial en todo momento. **Reservaremos 50 tokens que serán usados para promociones y sorteos.**",
+            alt: "icono de confirmacion",
+          }
+        ],
+        items: [
+          {
+            img: "/member.svg",
+            title: "Miembro de Biactro Founders",
+            description: "Cuando obtienes un Biactro Founders NFT, estas adquiriendo algo más que un certificado. Obtendrás acceso como miembro de un club cuyos beneficios y ofertas aumentarán con el tiempo: newsletter exclusivas, merchandising, acceso a eventos privados, charlas y mucho más. Si posees un certificado tendrás acceso a todos estos beneficios actuales y aquellos que añadamos en el futuro.",
+            alt: "icono de miembro",
+          },
+          {
+            img: "/savings_black_24dp.svg",
+            title: "Beneficios económicos",
+            description: "Los miembros de Biactro Founders recibiran el 1% de los beneficios netos de las ventas mundiales, poseer un NFT de la colección Biactro Founders garantiza a su propietario recibir una compensación económica resultado de la implantación de la tecnología, independientemente del país de implantación. Ademas tambien se asegura un porcentaje por kilo vendido de fertilizante de marca Biactro.",
+            alt: "icono de beneficios",
+          },
+          {
+            img: "/amba.svg",
+            title: "Ambassador de Biactro",
+            description: "Tendrás el derecho de poder intermediar con aquellos organismos públicos o privados que deseen usar la tecnología en tu lugar de origen. Obteniendo parte de los beneficios de explotación; una vez hayas asistido a nuestras reuniones formativas gratuitas y obtengas el beneplácito de la mayoría de los founders.",
+            alt: "icono de embajador",
+          },
+          {
+            img: "/tree.svg",
+            title: "Tu árbol",
+            description: "Parte de los beneficios de cada token servirá para plantar un árbol, no se plantará cualquier tipo de árbol si no aquellos autorizados para la zona y que no afecten al ecosistema local.",
+            alt: "Icono de arbol",
+          },
+          {
+            img: "/offer.svg",
+            title: "Descuentos y ofertas",
+            description: "Podrás acceder a un descuento y ofertas exclusivas si deseas implementar la tecnología para el beneficio de tu comunidad, o en el merchandising.",
+            alt: "icono de oferta",
+          },
+          {
+            img: "/chat.svg",
+            title: "Chat privado",
+            description: "Obtendrás acceso al chat privado de Biactro donde podrás contactar con otros fundadores. Solo aquellos que posean un NFT de la colección podrán acceder a este chat exclusivo.",
+            alt: "icono de chat",
+          }
+        ]
+      };
     },
     head() {
     return {
@@ -254,39 +258,78 @@ export default {
       ],
     }
   },
-    mounted() {
-      this.getWhiteListData();
+    async mounted() {
+      if (this.$web3Modal.cachedProvider) {
+        this.provider = await this.$web3Modal.connect();
+        this.currentAccount = this.provider.selectedAddress;
+        this.provider.on("accountsChanged", (accounts) => {
+          this.currentAccount = accounts[0]
+        });
+      }
+      await this.getWhiteListData()
     },
     methods: {
-        async getWhiteListData() {
-            const contractAddress = "0x58446E3fDD9b194779d2A815e9Ea89679DCde07D";
-            const contractABI = abiv001.abi;
-            const network = ethers.providers.getNetwork("rinkeby");
-            const { ethereum } = window;
-            let provider;
-              if (ethereum) {
-                provider = new ethers.providers.Web3Provider(ethereum);
-              } else {
-                provider = ethers.getDefaultProvider(network, { alchemy: 'https://eth-rinkeby.alchemyapi.io/v2/BT7pi_7fVKZ09UIm_uIpvU-iLAOcdfVJ' });
-              }
-            try {
-              const biactroWhiteListContract = new ethers.Contract(contractAddress, contractABI, provider);
-              const members = await biactroWhiteListContract.getMembers();
-              this.membersCount = await biactroWhiteListContract.getMemberCount();
-              this.maxMembers = await biactroWhiteListContract.getMaxMembers();
-              for (const greeting of members) {
-                this.members.push(greeting);
-              }
-              biactroWhiteListContract.on("newPreFounder", (_wallet, _timestamp) => {
-                this.members.push([_wallet, _timestamp])
-                this.membersCount++;
-                this.$toast.success('¡Nuevo miembro añadido!', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
-              });
-            }
-            catch (error) {
-                console.log(error);
-            }
+      async connectWallet() {
+        if (this.$web3Modal.cachedProvider) {
+          this.provider = await this.$web3Modal.connect();
+          this.currentAccount = this.provider.selectedAddress;
+          this.provider.on("accountsChanged", (accounts) => {
+          this.currentAccount = accounts[0]
+        });
+        } else {
+          this.provider = await this.$web3Modal.connect();
+          this.currentAccount = this.provider.selectedAddress;
+          this.provider.on("accountsChanged", (accounts) => {
+          this.currentAccount = accounts[0]
+        });
         }
+      },
+      async signToTheList(tokenID) {
+        const contractABI = abi.abi
+        try {
+            const provider = new ethers.providers.Web3Provider(this.provider);
+            const signer = provider.getSigner();
+            this.biactroWhiteListContract = new ethers.Contract(this.contractAddress, contractABI, signer);
+            const addTxn = await this.biactroWhiteListContract.addMember(tokenID, { gasLimit: 300000 });
+            this.mining = true;
+
+            await addTxn.wait();
+            this.mining = false;
+            this.membersCount = await this.biactroWhiteListContract.getMemberCount();
+            this.maxMembers = await this.biactroWhiteListContract.getMaxMembers();
+            this.biactroWhiteListContract.on("newPreFounder", (_wallet, _timestamp) => {
+              this.membersCount++;
+              this.$toast.success(`¡Nuevo miembro añadido! ${_wallet}`, { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
+            });
+            this.$toast.success('¡Cartera registrada!', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
+        } catch (error) {
+          this.$toast.error('No se ha podido registrar esta cartera', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
+          this.mining = false;
+          console.log(error)
+        }
+      },
+      async getWhiteListData() {
+        const contractABI = abi.abi
+        const network = ethers.providers.getNetwork("rinkeby");
+        let provider;
+          if (this.provider) {
+            provider = new ethers.providers.Web3Provider(this.provider);
+          } else {
+            provider = ethers.getDefaultProvider(network, { alchemy: 'https://eth-rinkeby.alchemyapi.io/v2/BT7pi_7fVKZ09UIm_uIpvU-iLAOcdfVJ' });
+          }
+        try {
+          this.biactroWhiteListContract = new ethers.Contract(this.contractAddress, contractABI, provider);
+          this.membersCount = await this.biactroWhiteListContract.getMemberCount();
+          this.maxMembers = await this.biactroWhiteListContract.getMaxMembers();
+          this.biactroWhiteListContract.on("newPreFounder", (_wallet, _timestamp) => {
+            this.membersCount++;
+            this.$toast.success(`¡Nuevo miembro añadido! ${_wallet}`, { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
+          });
+        }
+        catch (error) {
+          console.log(error);
+        }
+      }
     },
 }
 </script>

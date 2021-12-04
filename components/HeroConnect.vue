@@ -54,26 +54,24 @@
   </div>
 </template>
 <script>
-import { ethers } from "ethers";
-import abi from '../static/BiactroWhiteList.json'
 
 export default {
   name: 'HeroConnect',
-  data() {
-    return {
-      currentAccount: null,
-      mining: false,
-      provider: null,
-      tokenID: null,
+  props: {
+    currentAccount: {
+      type: String,
+      required: false,
+      default: null
+    },
+    mining: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
-  async mounted() {
-    if (this.$web3Modal.cachedProvider) {
-      this.provider = await this.$web3Modal.connect();
-      this.currentAccount = this.provider.selectedAddress;
-      this.provider.on("accountsChanged", (accounts) => {
-        this.currentAccount = accounts[0]
-      });
+  data() {
+    return {
+      tokenID: null,
     }
   },
   methods: {
@@ -81,35 +79,11 @@ export default {
     randomNumber() {
       this.tokenID = Math.floor(Math.random() * 40000);
     },
-    async connectWallet() {
-      if (this.$web3Modal.cachedProvider) {
-        this.provider = await this.$web3Modal.connect();
-        this.currentAccount = this.provider.selectedAddress;
-      } else {
-        this.provider = await this.$web3Modal.connect();
-        this.currentAccount = this.provider.selectedAddress;
-      }
+    signToTheList() {
+      // emit an event called sign
+      this.$emit('sign-whitelist', this.tokenID)
     },
-    async signToTheList() {
-      const contractAddress = '0x58446E3fDD9b194779d2A815e9Ea89679DCde07D'
-      const contractABI = abi.abi
-      try {
-          const provider = new ethers.providers.Web3Provider(this.provider);
-          const signer = provider.getSigner();
-          const biactroWhiteListContract = new ethers.Contract(contractAddress, contractABI, signer);
-          const addTxn = await biactroWhiteListContract.addMember(this.tokenID, { gasLimit: 300000 });
-          this.mining = true;
-  
-          await addTxn.wait();
-          this.mining = false;
-          this.message = '';
-          this.$toast.success('¡Cartera registrada!', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
-      } catch (error) {
-        this.$toast.error('No se ha podido registrar esta cartera', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
-        this.mining = false;
-        console.log(error)
-      }
-    }
+    connectWallet() {}
   }
 }
 </script>
