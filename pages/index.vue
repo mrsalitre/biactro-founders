@@ -89,7 +89,7 @@
         </div>
       </div>
     </div>
-    <TextSection id="available-info" :title="`Plazas restantes: ${maxMembers - membersCount}/${maxMembers}`" description="¡Date prisa!, registrate en la Whitelist y reserva tu NFT para conseguirlo a 0.015 ETH en todo momento. el numero se actualiza en tiempo real asi que, estos numeros no duraran mucho tiempo." img="/megaCity.jpg"/>
+    <!-- <TextSection id="available-info" :title="`Plazas restantes: ${maxMembers - membersCount}/${maxMembers}`" description="¡Date prisa!, registrate en la Whitelist y reserva tu NFT para conseguirlo a 0.015 ETH en todo momento. el numero se actualiza en tiempo real asi que, estos numeros no duraran mucho tiempo." img="/megaCity.jpg"/> -->
     <FeatureList :items="faq">
       FAQ/Preguntas frecuentes:
     </FeatureList>
@@ -115,13 +115,13 @@
 </template>
 <script>
 import { ethers } from "ethers";
-import abi from '../static/BiactroWhiteList.json'
+import abi from '../static/BiactroFoundersNFT.json'
 
 export default {
     data() {
       return {
         currentAccount: null,
-        contractAddress: '0x58446E3fDD9b194779d2A815e9Ea89679DCde07D',
+        contractAddress: '0x7ee959EaDEe6DedbA8dAea3E7fc7461A3319c432',
         mining: false,
         provider: null,
         membersCount: 0,
@@ -266,7 +266,7 @@ export default {
           this.currentAccount = accounts[0]
         });
       }
-      await this.getWhiteListData()
+      // await this.getWhiteListData()
     },
     methods: {
       async connectWallet() {
@@ -290,20 +290,14 @@ export default {
             const provider = new ethers.providers.Web3Provider(this.provider);
             const signer = provider.getSigner();
             this.biactroWhiteListContract = new ethers.Contract(this.contractAddress, contractABI, signer);
-            const addTxn = await this.biactroWhiteListContract.addMember(tokenID, { gasLimit: 300000 });
+            const addTxn = await this.biactroWhiteListContract.mint(tokenID, { gasLimit: 300000, value: ethers.utils.parseUnits('60000000', 'gwei') });
             this.mining = true;
 
             await addTxn.wait();
             this.mining = false;
-            this.membersCount = await this.biactroWhiteListContract.getMemberCount();
-            this.maxMembers = await this.biactroWhiteListContract.getMaxMembers();
-            this.biactroWhiteListContract.on("newPreFounder", (_wallet, _timestamp) => {
-              this.membersCount++;
-              this.$toast.success(`¡Nuevo miembro añadido! ${_wallet}`, { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
-            });
-            this.$toast.success('¡Cartera registrada!', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
+            this.$toast.success('¡NFT minado!', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
         } catch (error) {
-          this.$toast.error('No se ha podido registrar esta cartera', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
+          this.$toast.error('No se ha podido minar el NFT', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
           this.mining = false;
           console.log(error)
         }
