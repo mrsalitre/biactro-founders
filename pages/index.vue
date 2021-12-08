@@ -271,31 +271,19 @@ export default {
       ],
     }
   },
-    async mounted() {
+    mounted() {
       if (this.$web3Modal.cachedProvider) {
-        this.provider = await this.$web3Modal.connect();
-        this.currentAccount = this.provider.selectedAddress;
-        this.provider.on("accountsChanged", (accounts) => {
-          this.currentAccount = accounts[0]
-        });
+        this.connectWallet();
       }
       // await this.getWhiteListData()
     },
     methods: {
       async connectWallet() {
-        if (this.$web3Modal.cachedProvider) {
-          this.provider = await this.$web3Modal.connect();
-          this.currentAccount = this.provider.selectedAddress;
-          this.provider.on("accountsChanged", (accounts) => {
-            this.currentAccount = accounts[0]
-          });
-        } else {
-          this.provider = await this.$web3Modal.connect();
-          this.currentAccount = this.provider.selectedAddress;
-          this.provider.on("accountsChanged", (accounts) => {
-            this.currentAccount = accounts[0]
-          });
-        }
+        this.provider = await this.$web3Modal.connect();
+        this.currentAccount = this.provider.selectedAddress;
+        this.provider.on("accountsChanged", (accounts) => {
+          this.currentAccount = accounts[0]
+        });
       },
       async signToTheList(tokenID) {
         const contractABI = abi.abi
