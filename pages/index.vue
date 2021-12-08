@@ -1,7 +1,6 @@
 <template>
   <div>
-    <p class="px-4">cartera conectada: {{ currentAccount }}</p>
-    <HeroConnect id="hero" :current-account="currentAccount" :mining="mining" @sign-whitelist="signToTheList($event)" @connect-wallet="connectWallet()"/>
+    <HeroConnect id="hero"/>
     <div
       id="info"
       class="bg-biactro-white"
@@ -121,9 +120,7 @@ import abi from '../static/BiactroFoundersNFT.json'
 export default {
     data() {
       return {
-        currentAccount: null,
         contractAddress: '0x7ee959EaDEe6DedbA8dAea3E7fc7461A3319c432',
-        mining: false,
         provider: null,
         membersCount: 0,
         maxMembers: 0,
@@ -271,65 +268,29 @@ export default {
       ],
     }
   },
-    async mounted() {
-      if (this.$web3Modal.cachedProvider) {
-        this.provider = await this.$web3Modal.connect();
-        this.currentAccount = this.provider.selectedAddress;
-        this.provider.on("accountsChanged", (accounts) => {
-          this.currentAccount = accounts[0]
+  methods: {
+    async getWhiteListData() {
+      const contractABI = abi.abi
+      const network = ethers.providers.getNetwork("rinkeby");
+      let provider;
+        if (this.provider) {
+          provider = new ethers.providers.Web3Provider(this.provider);
+        } else {
+          provider = ethers.getDefaultProvider(network, { alchemy: 'https://eth-rinkeby.alchemyapi.io/v2/BT7pi_7fVKZ09UIm_uIpvU-iLAOcdfVJ' });
+        }
+      try {
+        this.biactroWhiteListContract = new ethers.Contract(this.contractAddress, contractABI, provider);
+        this.membersCount = await this.biactroWhiteListContract.getMemberCount();
+        this.maxMembers = await this.biactroWhiteListContract.getMaxMembers();
+        this.biactroWhiteListContract.on("newPreFounder", (_wallet, _timestamp) => {
+          this.membersCount++;
+          this.$toast.success(`¡Nuevo miembro añadido! ${_wallet}`, { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
         });
       }
-    },
-    methods: {
-      async connectWallet() {
-        if (this.$web3Modal.cachedProvider) {
-          this.provider = await this.$web3Modal.connect();
-          this.currentAccount = this.provider.selectedAddress;
-        } else {
-          this.provider = await this.$web3Modal.connect();
-          this.currentAccount = this.provider.selectedAddress;
-        }
-      },
-      async signToTheList(tokenID) {
-        const contractABI = abi.abi
-        try {
-            const provider = new ethers.providers.Web3Provider(this.provider);
-            const signer = provider.getSigner();
-            this.biactroWhiteListContract = new ethers.Contract(this.contractAddress, contractABI, signer);
-            const addTxn = await this.biactroWhiteListContract.mint(tokenID, { gasLimit: 300000, value: ethers.utils.parseUnits('60000000', 'gwei') });
-            this.mining = true;
-
-            await addTxn.wait();
-            this.mining = false;
-            this.$toast.success('¡NFT minado!', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
-        } catch (error) {
-          this.$toast.error('No se ha podido minar el NFT', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
-          this.mining = false;
-          console.log(error)
-        }
-      },
-      async getWhiteListData() {
-        const contractABI = abi.abi
-        const network = ethers.providers.getNetwork("rinkeby");
-        let provider;
-          if (this.provider) {
-            provider = new ethers.providers.Web3Provider(this.provider);
-          } else {
-            provider = ethers.getDefaultProvider(network, { alchemy: 'https://eth-rinkeby.alchemyapi.io/v2/BT7pi_7fVKZ09UIm_uIpvU-iLAOcdfVJ' });
-          }
-        try {
-          this.biactroWhiteListContract = new ethers.Contract(this.contractAddress, contractABI, provider);
-          this.membersCount = await this.biactroWhiteListContract.getMemberCount();
-          this.maxMembers = await this.biactroWhiteListContract.getMaxMembers();
-          this.biactroWhiteListContract.on("newPreFounder", (_wallet, _timestamp) => {
-            this.membersCount++;
-            this.$toast.success(`¡Nuevo miembro añadido! ${_wallet}`, { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
-          });
-        }
-        catch (error) {
-          console.log(error);
-        }
+      catch (error) {
+        console.log(error);
       }
-    },
+    }
+  },
 }
 </script>
