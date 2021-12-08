@@ -271,19 +271,24 @@ export default {
       ],
     }
   },
-    mounted() {
+    async mounted() {
       if (this.$web3Modal.cachedProvider) {
-        this.connectWallet();
-      }
-      // await this.getWhiteListData()
-    },
-    methods: {
-      async connectWallet() {
         this.provider = await this.$web3Modal.connect();
         this.currentAccount = this.provider.selectedAddress;
         this.provider.on("accountsChanged", (accounts) => {
           this.currentAccount = accounts[0]
         });
+      }
+    },
+    methods: {
+      async connectWallet() {
+        if (this.$web3Modal.cachedProvider) {
+          this.provider = await this.$web3Modal.connect();
+          this.currentAccount = this.provider.selectedAddress;
+        } else {
+          this.provider = await this.$web3Modal.connect();
+          this.currentAccount = this.provider.selectedAddress;
+        }
       },
       async signToTheList(tokenID) {
         const contractABI = abi.abi
