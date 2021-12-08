@@ -14,9 +14,9 @@
           <h2 
             class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2"
           >
-            ¿Qué es un NFT único de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
+            ¿Qué es un NFT de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
           </h2>
-          <p class="text-gray-700 text-xl sm:text-2xl biactro-gradient">Un NFT de la colección Biactro Founders es un certificado exclusivo que acredita a la persona que lo posea como <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">miembro fundador de Biactro.</span></p>
+          <p class="text-gray-700 text-xl sm:text-2xl biactro-gradient">Un NFT de la colección Biactro Founders es un ‘certificado digital’ exclusivo que acredita a la cartera que lo posea como <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">miembro fundador de Biactro.</span></p>
         </div>
         <div class="mt-8 sm:mt-8 sm:flex lg:justify-start">
           <div
@@ -26,7 +26,7 @@
               v-scroll-to="`#hero`"
               class="w-full flex items-center text-white justify-center px-8 py-3 border-2 border-biactro text-base leading-6 rounded-md font-semibold bg-biactro hover:bg-biactro-dark hover:border-biactro-dark focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
             >
-              ¡Registrarse ahora!
+              ¡Minar ahora!
             </button>
           </div>
           <div
@@ -42,11 +42,11 @@
         </div>
       </div>
     </div>
-    <InfoSection id="more-info" title="BIACTRO® (MTD) Mejor Tecnología Disponible. Comprometidos con la Reducción de la Huella de Carbono." description="Tras un bagaje profesional de sólida experiencia en las actividades de I+D+i establecido en planes desde su inicio hasta su puesta en marcha, la empresa, ha ido conformando el desarrollo para la promoción de varios proyectos pioneros, dando respuesta tangible a la problemática del deterioro medioambiental con la creación de nuevos modelos productivos y de desarrollo sostenible dedicado a la industria de cultivos intensivos ecológicos, tratamiento de residuos y valorización energética." />
+    <InfoSection id="more-info" title="Biactro™ (MTD) Mejor Tecnología Disponible. Responsabilizados con la reducción de la huella de carbono." description="Tras un bagaje profesional de sólida experiencia en las actividades de I+D+i establecido en planes desde su inicio hasta su puesta en marcha, la empresa, ha ido conformando el desarrollo para la promoción de varios proyectos pioneros, dando respuesta tangible a la problemática del deterioro medioambiental con la creación de nuevos modelos productivos y de desarrollo sostenible dedicado a la industria de cultivos intensivos ecológicos, tratamiento de residuos y valorización energética." />
     <FeatureList :items="items">
       ¿Qué obtengo al adquirir un NFT único de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
     </FeatureList>
-    <TextSection id="nftInfo" title="Distribución justa." description="Aquí no hay curvas de vinculación. Conseguir un Biatro Founders cuesta 0.015 ETH. No hay niveles de precios; ser miembro de Biactro Founders cuesta lo mismo para todos."/>
+    <TextSection id="nftInfo" title="Beneficio de Founder." description="Queremos premiar e incentivar la propuesta otorgando un costo de minado de 0.015 ETH a las 900 primeras personas que minen un NFT de la colección Biactro Founders antes del 5 de enero de 2022. A partir del 5 de enero de 2022 minar un Biactro Founders costará 0.06 ETH, independientemente de sus características. No hay niveles de precios; ser miembro de Biactro Founders cuesta lo mismo para todos."/>
     <InfoSection />
     <!-- <CtaBanner id="info" scroll-to-element="#more-info" title="" :subtitle="``"/> -->
     <div
@@ -61,9 +61,9 @@
           <h2 
             class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2"
           >
-            ¿A que irá destinado el dinero recolectado de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
+            ¿A que irá destinado los fondos recolectados de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
           </h2>
-          <p class="text-gray-700 text-xl sm:text-2xl biactro-gradient">Los fondos irán destinados a poner en marcha un módulo de gestión de residuos orgánicos, en el lugar del mundo que los miembros de Biactro Founders decidan, única y exclusivamente ellos.</p>
+          <p class="text-gray-700 text-xl sm:text-2xl biactro-gradient">Los fondos irán destinados a poner en marcha un módulo de gestión de residuos orgánicos, en el lugar del mundo que los miembros de Biactro Founders decidan por votación.</p>
         </div>
         <div class="mt-8 sm:mt-8 sm:flex lg:justify-start">
           <div
@@ -73,7 +73,7 @@
               v-scroll-to="`#hero`"
               class="w-full flex items-center text-white justify-center px-8 py-3 border-2 border-biactro text-base leading-6 rounded-md font-semibold bg-biactro hover:bg-biactro-dark hover:border-biactro-dark focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
             >
-              ¡Registrarse ahora!
+              Minar NFT
             </button>
           </div>
           <div
@@ -89,7 +89,7 @@
         </div>
       </div>
     </div>
-    <!-- <TextSection id="available-info" :title="`Plazas restantes: ${maxMembers - membersCount}/${maxMembers}`" description="¡Date prisa!, registrate en la Whitelist y reserva tu NFT para conseguirlo a 0.015 ETH en todo momento. el numero se actualiza en tiempo real asi que, estos numeros no duraran mucho tiempo." img="/megaCity.jpg"/> -->
+    <TextSection id="available-info" :title="`Acceso previo restante: ${maxMembers - membersCount}/${maxMembers}`" description="¡Date prisa!, mina tu NFT para conseguirlo a 0.015 ETH en este momento. Solo para las primeras 900 personas hasta el 5 de enero de 2022." img="/megaCity.jpg"/>
     <FeatureList :items="faq">
       FAQ/Preguntas frecuentes:
     </FeatureList>
@@ -129,60 +129,66 @@ export default {
         biactroWhiteListContract: null,
         faq: [
           {
-            img: "/request_quote_black_24dp.svg",
-            title: "¿Cómo se asegura que los beneficios seran repartidos?",
-            description: "En Biactro Technology creemos que la tecnología puede ayudarnos a conseguir un futuro mejor, por este motivo empleamos la tecnología “smart contracts” de Ethereum. Este “contrato inteligente” será programado para repartir de manera automática los beneficios entre todos los propietarios de un Biactro Founders NFT, sin la intervención de ninguna persona u organismo. Todas las personas podrán consultar este contrato inteligente y sus funcionalidades de forma pública.",
-            alt: "icono de fecha",
+            img: "/blockchain.svg",
+            title: "¿Qué blockchain se usará para este proyecto?",
+            description: "Este proyecto usará la blockchain de Ethereum para realizar las transacciones. Ethereum es la red de blockchain más accesible, con más respaldo, documentación, comunidad y recursos en la actualidad. Queremos que este proyecto sea lo más inclusivo posible así que de ser necesario, a la hora de ampliar las membresías o crear servicios para miembros, optariamos por redes con un menor costo de transacciones como Solana o usar redes de segunda capa como Polygon, pero conservando la colección original en la mainet de Ethereum.",
+            alt: "icono de blockchain",
           },
           {
-            img: "/public_black_24dp.svg",
-            title: "¿Qué blockchain se usará para este proyecto?",
-            description: "Este proyecto usará la blockchain de Ethereum para realizar las transacciones, Ethereum es la red de blockchain con más respaldo actualmente. Queremos que este proyecto sea lo más inclusivo posible así que de ser necesario optariamos por redes con un menor costo de transacciones como Polygon o Solana.",
-            alt: "icono de mundo",
+            img: "/contratos-inteligentes.svg",
+            title: "¿Cómo se asegura que los beneficios serán repartidos?",
+            description: "En Biactro Technology creemos que la tecnología puede ayudarnos a conseguir un futuro mejor, por este motivo empleamos la tecnología “smart contracts” de Ethereum. Este “contrato inteligente” será programado para repartir de manera automática los beneficios entre todos los propietarios de un Biactro Founders NFT, sin la intervención de ninguna persona u organismo. Todas las personas podrán consultar este contrato inteligente y sus funcionalidades de forma pública, así como publicar sugerencias o señalar errores antes de su publicación.",
+            alt: "icono de smart contract",
           },
           {
             img: "/sd_storage_black_24dp.svg",
             title: "¿Dónde se almacenará la imagen y los metadatos de mi NFT?",
-            description: "Tanto la imagen como sus metadatos se guardaran “on-chain”, se guardarán directamente en la blockchain, así aseguramos que la imagen persista hasta el fin de los tiempos y nunca pierdas acceso a tu Biactro Founders.",
+            description: "Guardaremos los metadatos de cada NFT usando IPFS, estos estarán referenciados mediante una un identificador de contenido único. La imagen por su parte estará almacenada dentro de los metadatos, en lugar de referenciar la ubicación de la imagen en otra ubicación. Al almacenar la imagen dentro de los metadatos y los metadatos en IPFS conseguimos que los datos del NFT duren hasta el fin de nuestra civilización sin ser alterados.",
             alt: "icono de almacenamiento",
           },
           {
             img: "/date_range_black_24dp.svg",
             title: "¿Cuándo se podrán minar los Biactro Founders?",
-            description: "Anunciaremos la fecha de minado en la página web, pero no te preocupes, si te registras podras minar los Biactro Founders en cualquier momento una vez anunciemos la fecha.",
+            description: "Puedes minar Biactro Founders ahora mismo a un coste reducido, sólo si eres una de las primeras 900 personas antes del 5 de enero de 2022. Si se llega al límite de Founders antes de la fecha citada no se podrán minar más NFT hasta llegar al 5 de enero de 2022.",
             alt: "icono de minado",
           },
           {
-            img: "/inventory_2_black_24dp.svg",
+            img: "/cartera.svg",
             title: "¿Existe un límite de Biactro Founders NFT por cartera?",
-            description: "No, cada cartera podrá minar y poseer los Biactro Founders que desee, sin embargo el contrato estará programado para minar un solo Biactro Founders a la vez. Programaremos el contrato de esta forma para evitar que una sola persona o empresa con mucho capital compre la mayoría del stock en pocas transacciones.",
+            description: "No, cada cartera podrá minar y poseer los Biactro Founders que desee, sin embargo el contrato estará programado para minar un solo Biactro Founders a la vez. Programamos el contrato de esta forma para evitar que una sola persona o empresa con mucho capital mine la mayoría de los tokens en pocas transacciones.",
             alt: "icono de minado",
-          },
-          {
-            img: "/update_black_24dp.svg",
-            title: "¿Cuándo tiempo reservaran mi Biactro Founders?",
-            description: "Las personas que se registren ahora podran acceder a su Biactro Founder en todo momento.",
-            alt: "icono de update",
           },
           {
             img: "/confirmation_number_black_24dp.svg",
             title: "¿Cuantos Biactro Founders se crearan?",
-            description: "Se creará un lote total de 10.000 NFTs, de los cuales 900 serán reservados para las personas que se apunten en la lista, solo estas personas podrán obtener el NFT al precio base inicial en todo momento. **Reservaremos 10 tokens que serán usados para promociones y sorteos.**",
+            description: "Se creará un lote total de 10.000 NFT, de los cuales 900 tendrán el costo de minado reducido. **Reservaremos 30 tokens que serán usados para fines publicitarios o promocionales.**",
             alt: "icono de confirmacion",
+          },
+          {
+            img: "/ethereum.svg",
+            title: "¿Cuál será el costo de minado base de cada Biactro Founders NFT?",
+            description: "El costo de minado de cada Biactro Founders empezará en 0.015 ETH, este se mantendrá para las primeras 900 personas hasta el 5 de enero de 2022. A partir del 5 de enero de 2022 el costo de minado será de 0.06 ETH.",
+            alt: "icono de ether",
+          },
+          {
+            img: "/democracia.svg",
+            title: "¿Cómo se decidirá dónde abrir el nuevo módulo?",
+            description: "Una vez se hayan minado todos los NFTs de la colección Biactro Founders iniciaremos el desarrollo de los tokens de gobierno, esta será la forma de interactuar con el contrato inteligente encargado de admitir propuestas de los miembros de Biactro Founders, los cuales podrán votar entre estas propuestas para decidir el lugar y representante.",
+            alt: "icono de democracia",
+          },
+          {
+            img: "/bosque.svg",
+            title: "¿Qué cantidad del token irá destinado al proyecto de forestación?",
+            description: "Una vez se hayan minado todos los NFTs y hayamos desarrollado los tokens de gobierno, los Founders podrán decidir la cantidad y el lugar del proyecto de forestación una vez hayamos alcanzado el objetivo inicial de abrir un nuevo módulo.",
+            alt: "icono de bosque",
           }
         ],
         items: [
           {
             img: "/member.svg",
             title: "Miembro de Biactro Founders",
-            description: "Cuando obtienes un Biactro Founders NFT, estas adquiriendo algo más que un certificado. Obtendrás acceso como miembro de un club cuyos beneficios y ofertas aumentarán con el tiempo: newsletter exclusivas, merchandising, acceso a eventos privados, charlas y mucho más. Si posees un certificado tendrás acceso a todos estos beneficios actuales y aquellos que añadamos en el futuro.",
+            description: "Cuando obtienes un Biactro Founders NFT, estas adquiriendo algo más que un certificado. Obtendrás acceso como miembro de un club cuyos beneficios y ofertas aumentarán con el tiempo: newsletter exclusivas, merchandising, acceso a eventos privados, charlas y mucho más. Si posees un certificado tendrás acceso a todos estos beneficios y aquellos que añadamos en el futuro.",
             alt: "icono de miembro",
-          },
-          {
-            img: "/savings_black_24dp.svg",
-            title: "Beneficios económicos",
-            description: "Los miembros de Biactro Founders recibiran el 1% de los beneficios netos de las ventas mundiales, poseer un NFT de la colección Biactro Founders garantiza a su propietario recibir una compensación económica resultado de la implantación de la tecnología, independientemente del país de implantación. Ademas tambien se asegura un porcentaje por kilo vendido de fertilizante de marca Biactro.",
-            alt: "icono de beneficios",
           },
           {
             img: "/amba.svg",
@@ -191,23 +197,29 @@ export default {
             alt: "icono de embajador",
           },
           {
-            img: "/tree.svg",
-            title: "Tu árbol",
-            description: "Parte de los beneficios de cada token servirá para plantar un árbol, no se plantará cualquier tipo de árbol si no aquellos autorizados para la zona y que no afecten al ecosistema local.",
-            alt: "Icono de arbol",
-          },
-          {
             img: "/offer.svg",
             title: "Descuentos y ofertas",
-            description: "Podrás acceder a un descuento y ofertas exclusivas si deseas implementar la tecnología para el beneficio de tu comunidad, o en el merchandising.",
+            description: "Podrás acceder a un descuento exclusivo si deseas implementar la tecnología para el beneficio de tu comunidad, o en el merchandising.",
             alt: "icono de oferta",
           },
           {
             img: "/chat.svg",
             title: "Chat privado",
-            description: "Obtendrás acceso al chat privado de Biactro donde podrás contactar con otros fundadores. Solo aquellos que posean un NFT de la colección podrán acceder a este chat exclusivo.",
+            description: "Obtendrás acceso al chat privado de la comunidad de Biactro donde podrás contactar con otros fundadores. Solo aquellos que posean un NFT de la colección podrán acceder a este chat exclusivo.",
             alt: "icono de chat",
-          }
+          },
+          {
+            img: "/tree.svg",
+            title: "Forestación",
+            description: "Parte de los beneficios de cada token servirá para plantar un árbol. No se plantará cualquier tipo de árbol, sino aquellos autorizados para la zona y que no afecten al ecosistema local.",
+            alt: "Icono de arbol",
+          },
+          {
+            img: "/savings_black_24dp.svg",
+            title: "Beneficios económicos",
+            description: "Los miembros de Biactro Founders recibirán el 1% de los beneficios netos de las ventas mundiales, poseer un NFT de la colección Biactro Founders garantiza a su propietario recibir una compensación económica resultado de la implantación de la tecnología, independientemente del país de implantación. Además también se asegura un porcentaje por kilo vendido de fertilizante de marca Biactro.",
+            alt: "icono de beneficios",
+          },
         ]
       };
     },

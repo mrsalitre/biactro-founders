@@ -5,9 +5,9 @@
     >
       <h1
         class="lg:w-1/2 text-4xl text-gray-900 tracking-tight leading-10 font-bold font-serif sm:text-5xl sm:leading-none md:text-6xl xl:pr-6"
-      >Futuros founders de Biactro: <br><span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">El futuro es hoy.</span></h1>
+      >Founders de Biactro: <br><span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">El futuro es hoy.</span></h1>
       <p class="lg:w-1/2 mt-3 text-base text-gray-800 sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl lg:mx-0 biactro-gradient">
-        Hemos abierto la whitelist para futuros founders de Biactro. Apúntate a la lista cerrada de 900 miembros para tener acceso asegurado a tu certificado NFT <strong><span>único</span></strong> de la colección ‘Biactro Founders’.  
+        Hemos abierto el acceso previo para minar NFTs de la colección Biactro Founders. Solo las primeras 900 personas podrán conseguir su NFT <strong><span>único</span></strong> de la colección ‘Biactro Founders’ a un costo de minado exclusivo, hasta el día 5 de enero de 2022.  
       </p>
       <div v-if="currentAccount !== null" class="w-full sm:max-w-md">
         <div class="relative mt-4"> 
