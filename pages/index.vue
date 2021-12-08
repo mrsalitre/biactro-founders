@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p class="px-4">cartera conectada: {{ currentAccount }}</p>
     <HeroConnect id="hero" :current-account="currentAccount" :mining="mining" @sign-whitelist="signToTheList($event)" @connect-wallet="connectWallet()"/>
     <div
       id="info"
@@ -14,7 +15,7 @@
           <h2 
             class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2"
           >
-            ¿Qué es un NFT de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
+            ¿Qué es un NFT único de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
           </h2>
           <p class="text-gray-700 text-xl sm:text-2xl biactro-gradient">Un NFT de la colección Biactro Founders es un ‘certificado digital’ exclusivo que acredita a la cartera que lo posea como <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">miembro fundador de Biactro.</span></p>
         </div>
@@ -286,14 +287,14 @@ export default {
           this.provider = await this.$web3Modal.connect();
           this.currentAccount = this.provider.selectedAddress;
           this.provider.on("accountsChanged", (accounts) => {
-          this.currentAccount = accounts[0]
-        });
+            this.currentAccount = accounts[0]
+          });
         } else {
           this.provider = await this.$web3Modal.connect();
           this.currentAccount = this.provider.selectedAddress;
           this.provider.on("accountsChanged", (accounts) => {
-          this.currentAccount = accounts[0]
-        });
+            this.currentAccount = accounts[0]
+          });
         }
       },
       async signToTheList(tokenID) {

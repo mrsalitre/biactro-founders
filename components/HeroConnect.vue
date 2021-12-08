@@ -22,7 +22,7 @@
           <button
             v-if="currentAccount === null"
             class="w-full flex items-center text-white justify-center px-8 py-3 border-2 border-biactro text-base leading-6 rounded-md font-semibold bg-biactro hover:bg-biactro-dark hover:border-biactro-dark focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
-            @click="connectWallet()"
+            @click="connectTheWallet()"
           >
             Conectar Cartera
           </button>
@@ -83,7 +83,7 @@ export default {
       // emit an event called sign
       this.$emit('sign-whitelist', this.tokenID)
     },
-    connectWallet() {
+    connectTheWallet() {
       this.$emit('connect-wallet')
     }
   }
