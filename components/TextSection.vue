@@ -30,7 +30,7 @@
                   "
                   class="w-full flex items-center justify-center px-8 py-3 border-2 border-biactro text-base leading-6 font-medium rounded-md text-white font-semibold bg-biactro hover:bg-biactro-dark hover:border-biactro-dark focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
                 >
-                  ¡Unirse a la Whitelist!
+                  ¡Minar Biactro Founders!
                 </button>
               </div>
             </div>
