@@ -89,13 +89,10 @@
         </div>
       </div>
     </div>
-    <TextSection id="available-info" :title="`Quedan ${900 - membersCount}/900 Biactro Founders a precio reducido.`" description="¡Date prisa!, mina tu NFT para conseguirlo a 0.015 ETH en este momento. Solo para las primeras 900 personas hasta el 5 de enero de 2022." img="/megaCity.jpg"/>
+    <TextSection id="available-info" :title="`Quedan ${900 - membersCount} Biactro Founders a precio reducido.`" description="¡Date prisa!, mina tu NFT para conseguirlo a 0.015 ETH en este momento. Solo para las primeras 900 personas hasta el 5 de enero de 2022." img="/megaCity.jpg"/>
     <FeatureList :items="faq">
       FAQ/Preguntas frecuentes:
     </FeatureList>
-    <div id="tokens">
-      <h3>Tokens disponibles</h3>
-    </div>
     <footer class="bg-biactro-dark">
       <div class="max-w-screen-xl mx-auto">
         <div class="relative z-10">
@@ -127,6 +124,7 @@ export default {
         provider: null,
         membersCount: 0,
         biactroWhiteListContract: null,
+        availableTokens: [],
         faq: [
           {
             img: "/blockchain.svg",
@@ -277,10 +275,8 @@ export default {
       this.provider.on("accountsChanged", (accounts) => {
         this.currentAccount = accounts[0]
       });
-      this.getWhiteListData()
-    } else {
-      this.getWhiteListData()
     }
+    this.getWhiteListData()
   },
   methods: {
     async getWhiteListData() {
@@ -296,16 +292,14 @@ export default {
         this.biactroWhiteListContract = new ethers.Contract(this.contractAddress, contractABI, provider);
         this.membersCount = await this.biactroWhiteListContract.totalSupply();
         this.membersCount = this.membersCount._hex
-        this.biactroWhiteListContract.on("Transfer", async (_from, _to, _tokenId) => {
-          this.$toast.success(`¡Nuevo miembro añadido! #${_tokenId}`, { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
-          this.membersCount = await this.biactroWhiteListContract.totalSupply();
-          this.membersCount = this.membersCount._hex;
+        this.biactroWhiteListContract.on("Transfer", (_from, _to, _tokenId) => {
+          this.$toast.success(`¡Biactro Founders #${_tokenId} minado!`, { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
         });
       }
       catch (error) {
         console.log(error);
       }
-    }
+    },
   },
 }
 </script>

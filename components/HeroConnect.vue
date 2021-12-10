@@ -14,9 +14,8 @@
       <div v-if="currentAccount !== null" class="w-full sm:max-w-md">
         <div class="relative mt-4">
           <div class="bg-yellow-200 rounded-md p-2">
-            <p class="text-sm font-semibold">Introduce tus numeros favoritos</p>
-            <p class="text-xs">Escribe los numeros que deseas minar separados por un espacio. Maximo 20 NFTs por transacción. Puedes consultar los tokens disponibles antes de minarlos.</p>
-            <button v-scroll-to="`#tokens`" class="bg-biactro-dark p-1 mt-2 rounded text-white text-sm">Ver tokens disponibles</button>          
+            <p class="text-sm font-semibold">Introduce tus numeros favoritos.</p>
+            <p class="text-xs">Escribe los numeros que deseas minar separados por un espacio. Se pueden minar hasta 20 NFTs por transacción. Puedes <nuxt-link to="consultar-tokens-disponibles" class="underline">consultar los tokens disponibles</nuxt-link> antes de minarlos.</p>          
           </div>
           <input v-model.trim="tokenID" type="text" class="mt-4 border-2 border-gray-300 rounded-md h-14 w-full pr-8 pl-5 rounded z-0 focus:outline-none" placeholder="Introduce tus numeros favoritos">
         </div>
