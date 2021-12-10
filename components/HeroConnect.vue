@@ -130,7 +130,7 @@ export default {
         await addTxn.wait();
         this.mining = false;
       } catch (error) {
-        this.$toast.error('No se ha podido registrar esta cartera', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
+        this.$toast.error('No se ha podido minar estos tokens', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
         this.mining = false;
         console.log(error)
       }

@@ -89,7 +89,7 @@
         </div>
       </div>
     </div>
-    <TextSection id="available-info" :title="`Acceso previo restante: ${maxMembers - membersCount}/${maxMembers}`" description="¡Date prisa!, mina tu NFT para conseguirlo a 0.015 ETH en este momento. Solo para las primeras 900 personas hasta el 5 de enero de 2022." img="/megaCity.jpg"/>
+    <TextSection id="available-info" :title="`Biactro Founders restantes: ${900 - membersCount}/900`" description="¡Date prisa!, mina tu NFT para conseguirlo a 0.015 ETH en este momento. Solo para las primeras 900 personas hasta el 5 de enero de 2022." img="/megaCity.jpg"/>
     <FeatureList :items="faq">
       FAQ/Preguntas frecuentes:
     </FeatureList>
@@ -126,7 +126,6 @@ export default {
         contractAddress: '0xe0C92112f20cc120649b29b6Ff51ED85D583A33b',
         provider: null,
         membersCount: 0,
-        maxMembers: 0,
         biactroWhiteListContract: null,
         faq: [
           {
@@ -296,6 +295,7 @@ export default {
       try {
         this.biactroWhiteListContract = new ethers.Contract(this.contractAddress, contractABI, provider);
         this.membersCount = await this.biactroWhiteListContract.totalSupply();
+        this.membersCount = this.membersCount._hex
         this.biactroWhiteListContract.on("Transfer", (_from, _to, _tokenId) => {
           this.$toast.success(`¡Nuevo miembro añadido! #${_tokenId}`, { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
         });
