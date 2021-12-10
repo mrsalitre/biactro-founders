@@ -184,7 +184,7 @@ export default {
           {
             img: "/confirmation_number_black_24dp.svg",
             title: "¿Cuantos Biactro Founders se crearan?",
-            description: "Se creará un lote total de 10.000 NFT, de los cuales 900 tendrán el costo de minado reducido. **Reservaremos 30 tokens que serán usados para fines publicitarios o promocionales.**",
+            description: "Se creará un lote total de 10.000 NFT, de los cuales 900 tendrán el costo de minado reducido.",
             alt: "icono de confirmacion",
           },
           {
