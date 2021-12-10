@@ -93,6 +93,9 @@
     <FeatureList :items="faq">
       FAQ/Preguntas frecuentes:
     </FeatureList>
+    <div id="tokens">
+      <h3>Tokens disponibles</h3>
+    </div>
     <footer class="bg-biactro-dark">
       <div class="max-w-screen-xl mx-auto">
         <div class="relative z-10">

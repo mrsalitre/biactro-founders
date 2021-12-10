@@ -18,7 +18,7 @@
             <p class="text-xs">Escribe los numeros que deseas minar separados por un espacio. Maximo 20 NFTs por transacción. Puedes consultar los tokens disponibles antes de minarlos.</p>
             <button v-scroll-to="`#tokens`" class="bg-biactro-dark p-1 mt-2 rounded text-white text-sm">Ver tokens disponibles</button>          
           </div>
-          <input v-model="tokenID" type="text" class="mt-4 border-2 border-gray-300 rounded-md h-14 w-full pr-8 pl-5 rounded z-0 focus:outline-none" placeholder="Introduce tus numeros favoritos">
+          <input v-model.trim="tokenID" type="text" class="mt-4 border-2 border-gray-300 rounded-md h-14 w-full pr-8 pl-5 rounded z-0 focus:outline-none" placeholder="Introduce tus numeros favoritos">
         </div>
       </div>
       <div class="mt-4 sm:flex sm:flex-wrap sm:justify-between w-full sm:max-w-md">
@@ -73,6 +73,21 @@ export default {
       tokenID: null,
     }
   },
+  computed: {
+    ids() {
+      return this.tokenID ? this.tokenID.split(' ').map( Number ) : [];
+    },
+    price() {
+      const preSalePrice = 15000000000000000n;
+      const salePrice = 60000000000000000n;
+      const currentPrice = this.isPreSale ? preSalePrice : salePrice;
+      return (currentPrice * (BigInt(this.ids.length.toString()))).toString()
+    },
+    isPreSale() {
+      const preSaleDate = 1641340800;
+      return Date.now() / 1000 <= preSaleDate
+    }
+  },
   async mounted() {
     if (this.$web3Modal.cachedProvider) {
       this.provider = await this.$web3Modal.connect();
@@ -97,19 +112,23 @@ export default {
       }
     },
     async mint() {
-      const contractAddress = '0xe0C92112f20cc120649b29b6Ff51ED85D583A33b'
-      const contractABI = abi.abi
+      if (!this.ids.length) {
+        this.$toast.error('Debe introducir un número', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
+        return
+      }
+      const intArray = this.ids.filter(value => !isNaN(value));
+      const contractAddress = '0xe0C92112f20cc120649b29b6Ff51ED85D583A33b';
+      const contractABI = abi.abi;
       try {
-          const provider = new ethers.providers.Web3Provider(this.provider);
-          const signer = provider.getSigner();
-          const biactroWhiteListContract = new ethers.Contract(contractAddress, contractABI, signer);
-          const addTxn = await biactroWhiteListContract.mint(this.tokenID, { gasLimit: 300000, value: ethers.utils.parseUnits('15000000000000000', 'wei') });
-          this.mining = true;
-  
-          await addTxn.wait();
-          this.mining = false;
-          this.message = '';
-          this.$toast.success('¡NFT minado!', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
+        const provider = new ethers.providers.Web3Provider(this.provider);
+        const signer = provider.getSigner();
+        const biactroWhiteListContract = new ethers.Contract(contractAddress, contractABI, signer);
+        
+        const addTxn = await biactroWhiteListContract.mint(intArray, { value: ethers.utils.parseUnits(this.price, 'wei') });
+        this.mining = true;
+
+        await addTxn.wait();
+        this.mining = false;
       } catch (error) {
         this.$toast.error('No se ha podido registrar esta cartera', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
         this.mining = false;
