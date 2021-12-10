@@ -42,13 +42,12 @@
         </div>
       </div>
     </div>
-    <InfoSection id="more-info" title="Biactro™ (MTD) Mejor Tecnología Disponible. Responsabilizados con la reducción de la huella de carbono." description="Tras un bagaje profesional de sólida experiencia en las actividades de I+D+i establecido en planes desde su inicio hasta su puesta en marcha, la empresa, ha ido conformando el desarrollo para la promoción de varios proyectos pioneros, dando respuesta tangible a la problemática del deterioro medioambiental con la creación de nuevos modelos productivos y de desarrollo sostenible dedicado a la industria de cultivos intensivos ecológicos, tratamiento de residuos y valorización energética." />
+    <InfoSection id="more-info" title="Biactro™. Comprometidos con la reducción de la huella de carbono." description="Tras un bagaje profesional de sólida experiencia en las actividades de I+D+i establecido en planes desde su inicio hasta su puesta en marcha, la empresa, ha ido conformando el desarrollo para la promoción de varios proyectos pioneros, dando respuesta tangible a la problemática del deterioro medioambiental con la creación de nuevos modelos productivos y de desarrollo sostenible dedicado a la industria de cultivos intensivos ecológicos, tratamiento de residuos y valorización energética." />
     <FeatureList :items="items">
       ¿Qué obtengo al adquirir un NFT único de la colección <span class="inline-block text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
     </FeatureList>
     <TextSection id="nftInfo" title="Beneficio de Founder." description="Queremos premiar e incentivar la propuesta otorgando un costo de minado de 0.015 ETH a las 900 primeras personas que minen un NFT de la colección Biactro Founders antes del 5 de enero de 2022. A partir del 5 de enero de 2022 minar un Biactro Founders costará 0.06 ETH, independientemente de sus características. No hay niveles de precios; ser miembro de Biactro Founders cuesta lo mismo para todos."/>
     <InfoSection />
-    <!-- <CtaBanner id="info" scroll-to-element="#more-info" title="" :subtitle="``"/> -->
     <div
       class="bg-biactro-white"
     >
@@ -93,6 +92,23 @@
     <FeatureList :items="faq">
       FAQ/Preguntas frecuentes:
     </FeatureList>
+    <div
+    >
+      <div
+        class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-24 lg:px-8 lg:items-center lg:justify-between"
+      >
+        <div
+          class="text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10"
+        >
+          <h2 
+            class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2"
+          >
+            ¿Tienes dudas?
+          </h2>
+          <p class="text-gray-700 text-xl sm:text-2xl font-semibold">Si tienes preguntas o dudas sobre el proyecto puedes <a href="https://www.discord.com" class="underline">unirte a nuestro servidor de Discord</a> para resolverlas.</p>
+        </div>
+      </div>
+    </div>
     <footer class="bg-biactro-dark">
       <div class="max-w-screen-xl mx-auto">
         <div class="relative z-10">
@@ -100,6 +116,15 @@
             <div class="sm:text-center lg:text-left py-4 text-white">
               <span class="font-semibold">
                 ©2021 <a class="underline" href="https://biactro.com" target="_blank">Biactro Technology</a> Todos los derechos reservados
+              </span>
+            </div>
+            <div class="sm:text-center lg:text-left py-4 text-white text-xs">
+              <span class="font-semibold">
+                Contrato: <br><a class="underline" href="https://rinkeby.etherscan.io/address/0xe0C92112f20cc120649b29b6Ff51ED85D583A33b" target="_blank">{{ contractAddress }}</a>
+              </span>
+              <br>
+              <span class="font-semibold">
+                CID de IPFS: <br><a class="underline" href="https://ipfs.io/ipfs/QmfLCLmb3TvFgnJccCBVVSVWsg6jaepsXoW5wxpFV14mhc" target="_blank">QmfLCLmb3TvFgnJccCBVVSVWsg6jaepsXoW5wxpFV14mhc</a>
               </span>
             </div>
             <div class="sm:text-center lg:text-left py-4 text-white">
