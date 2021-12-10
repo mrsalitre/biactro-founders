@@ -44,7 +44,7 @@
     </div>
     <InfoSection id="more-info" title="Biactro™ (MTD) Mejor Tecnología Disponible. Responsabilizados con la reducción de la huella de carbono." description="Tras un bagaje profesional de sólida experiencia en las actividades de I+D+i establecido en planes desde su inicio hasta su puesta en marcha, la empresa, ha ido conformando el desarrollo para la promoción de varios proyectos pioneros, dando respuesta tangible a la problemática del deterioro medioambiental con la creación de nuevos modelos productivos y de desarrollo sostenible dedicado a la industria de cultivos intensivos ecológicos, tratamiento de residuos y valorización energética." />
     <FeatureList :items="items">
-      ¿Qué obtengo al adquirir un NFT único de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
+      ¿Qué obtengo al adquirir un NFT único de la colección <span class="inline-block text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
     </FeatureList>
     <TextSection id="nftInfo" title="Beneficio de Founder." description="Queremos premiar e incentivar la propuesta otorgando un costo de minado de 0.015 ETH a las 900 primeras personas que minen un NFT de la colección Biactro Founders antes del 5 de enero de 2022. A partir del 5 de enero de 2022 minar un Biactro Founders costará 0.06 ETH, independientemente de sus características. No hay niveles de precios; ser miembro de Biactro Founders cuesta lo mismo para todos."/>
     <InfoSection />
@@ -61,7 +61,7 @@
           <h2 
             class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2"
           >
-            ¿A que irá destinado los fondos recolectados de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
+            ¿A que irá destinado los fondos recolectados de la colección <span class="inline-block text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
           </h2>
           <p class="text-gray-700 text-xl sm:text-2xl biactro-gradient">Los fondos irán destinados a poner en marcha un módulo de gestión de residuos orgánicos, en el lugar del mundo que los miembros de Biactro Founders decidan por votación.</p>
         </div>
