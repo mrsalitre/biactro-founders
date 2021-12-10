@@ -120,7 +120,7 @@ import abi from '../static/BiactroFoundersNFT.json'
 export default {
     data() {
       return {
-        contractAddress: '0x7ee959EaDEe6DedbA8dAea3E7fc7461A3319c432',
+        contractAddress: '0xe0C92112f20cc120649b29b6Ff51ED85D583A33b',
         provider: null,
         membersCount: 0,
         maxMembers: 0,
@@ -268,6 +268,18 @@ export default {
       ],
     }
   },
+  async mounted() {
+    if (this.$web3Modal.cachedProvider) {
+      this.provider = await this.$web3Modal.connect();
+      this.currentAccount = this.provider.selectedAddress;
+      this.provider.on("accountsChanged", (accounts) => {
+        this.currentAccount = accounts[0]
+      });
+      this.getWhiteListData()
+    } else {
+      this.getWhiteListData()
+    }
+  },
   methods: {
     async getWhiteListData() {
       const contractABI = abi.abi
@@ -280,11 +292,9 @@ export default {
         }
       try {
         this.biactroWhiteListContract = new ethers.Contract(this.contractAddress, contractABI, provider);
-        this.membersCount = await this.biactroWhiteListContract.getMemberCount();
-        this.maxMembers = await this.biactroWhiteListContract.getMaxMembers();
-        this.biactroWhiteListContract.on("newPreFounder", (_wallet, _timestamp) => {
-          this.membersCount++;
-          this.$toast.success(`¡Nuevo miembro añadido! ${_wallet}`, { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
+        this.membersCount = await this.biactroWhiteListContract.totalSupply();
+        this.biactroWhiteListContract.on("Transfer", (_from, _to, _tokenId) => {
+          this.$toast.success(`¡Nuevo miembro añadido! #${_tokenId}`, { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
         });
       }
       catch (error) {
