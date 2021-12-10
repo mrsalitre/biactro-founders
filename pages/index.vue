@@ -42,13 +42,12 @@
         </div>
       </div>
     </div>
-    <InfoSection id="more-info" title="Biactro™ (MTD) Mejor Tecnología Disponible. Responsabilizados con la reducción de la huella de carbono." description="Tras un bagaje profesional de sólida experiencia en las actividades de I+D+i establecido en planes desde su inicio hasta su puesta en marcha, la empresa, ha ido conformando el desarrollo para la promoción de varios proyectos pioneros, dando respuesta tangible a la problemática del deterioro medioambiental con la creación de nuevos modelos productivos y de desarrollo sostenible dedicado a la industria de cultivos intensivos ecológicos, tratamiento de residuos y valorización energética." />
+    <InfoSection id="more-info" title="Biactro™. Comprometidos con la reducción de la huella de carbono." description="Tras un bagaje profesional de sólida experiencia en las actividades de I+D+i establecido en planes desde su inicio hasta su puesta en marcha, la empresa, ha ido conformando el desarrollo para la promoción de varios proyectos pioneros, dando respuesta tangible a la problemática del deterioro medioambiental con la creación de nuevos modelos productivos y de desarrollo sostenible dedicado a la industria de cultivos intensivos ecológicos, tratamiento de residuos y valorización energética." />
     <FeatureList :items="items">
-      ¿Qué obtengo al adquirir un NFT único de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
+      ¿Qué obtengo al adquirir un NFT único de la colección <span class="inline-block text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
     </FeatureList>
     <TextSection id="nftInfo" title="Beneficio de Founder." description="Queremos premiar e incentivar la propuesta otorgando un costo de minado de 0.015 ETH a las 900 primeras personas que minen un NFT de la colección Biactro Founders antes del 5 de enero de 2022. A partir del 5 de enero de 2022 minar un Biactro Founders costará 0.06 ETH, independientemente de sus características. No hay niveles de precios; ser miembro de Biactro Founders cuesta lo mismo para todos."/>
     <InfoSection />
-    <!-- <CtaBanner id="info" scroll-to-element="#more-info" title="" :subtitle="``"/> -->
     <div
       class="bg-biactro-white"
     >
@@ -61,7 +60,7 @@
           <h2 
             class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2"
           >
-            ¿A que irá destinado los fondos recolectados de la colección <span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
+            ¿A que irá destinado los fondos recolectados de la colección <span class="inline-block text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
           </h2>
           <p class="text-gray-700 text-xl sm:text-2xl biactro-gradient">Los fondos irán destinados a poner en marcha un módulo de gestión de residuos orgánicos, en el lugar del mundo que los miembros de Biactro Founders decidan por votación.</p>
         </div>
@@ -89,12 +88,26 @@
         </div>
       </div>
     </div>
-    <TextSection id="available-info" :title="`Quedan ${900 - membersCount}/900 Biactro Founders a precio reducido.`" description="¡Date prisa!, mina tu NFT para conseguirlo a 0.015 ETH en este momento. Solo para las primeras 900 personas hasta el 5 de enero de 2022." img="/megaCity.jpg"/>
+    <TextSection id="available-info" :title="`Quedan ${900 - membersCount} Biactro Founders a precio reducido.`" description="¡Date prisa!, mina tu NFT para conseguirlo a 0.015 ETH en este momento. Solo para las primeras 900 personas hasta el 5 de enero de 2022." img="/megaCity.jpg"/>
     <FeatureList :items="faq">
       FAQ/Preguntas frecuentes:
     </FeatureList>
-    <div id="tokens">
-      <h3>Tokens disponibles</h3>
+    <div
+    >
+      <div
+        class="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 lg:py-24 lg:px-8 lg:items-center lg:justify-between"
+      >
+        <div
+          class="text-3xl leading-9 font-extrabold tracking-tight sm:text-4xl sm:leading-10"
+        >
+          <h2 
+            class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2"
+          >
+            ¿Tienes dudas?
+          </h2>
+          <p class="text-gray-700 text-xl sm:text-2xl font-semibold">Si tienes preguntas o dudas sobre el proyecto puedes <a href="https://www.discord.com" class="underline">unirte a nuestro servidor de Discord</a> para resolverlas.</p>
+        </div>
+      </div>
     </div>
     <footer class="bg-biactro-dark">
       <div class="max-w-screen-xl mx-auto">
@@ -103,6 +116,15 @@
             <div class="sm:text-center lg:text-left py-4 text-white">
               <span class="font-semibold">
                 ©2021 <a class="underline" href="https://biactro.com" target="_blank">Biactro Technology</a> Todos los derechos reservados
+              </span>
+            </div>
+            <div class="sm:text-center lg:text-left py-4 text-white text-xs">
+              <span class="font-semibold">
+                Contrato: <br><a class="underline" href="https://rinkeby.etherscan.io/address/0xe0C92112f20cc120649b29b6Ff51ED85D583A33b" target="_blank">{{ contractAddress }}</a>
+              </span>
+              <br>
+              <span class="font-semibold">
+                CID de IPFS: <br><a class="underline" href="https://ipfs.io/ipfs/QmfLCLmb3TvFgnJccCBVVSVWsg6jaepsXoW5wxpFV14mhc" target="_blank">QmfLCLmb3TvFgnJccCBVVSVWsg6jaepsXoW5wxpFV14mhc</a>
               </span>
             </div>
             <div class="sm:text-center lg:text-left py-4 text-white">
@@ -123,10 +145,11 @@ import abi from '../static/BiactroFoundersNFT.json'
 export default {
     data() {
       return {
-        contractAddress: '0xe0C92112f20cc120649b29b6Ff51ED85D583A33b',
+        contractAddress: '0x56a05473f05887af5de52eceB7aca85943363481',
         provider: null,
         membersCount: 0,
         biactroWhiteListContract: null,
+        availableTokens: [],
         faq: [
           {
             img: "/blockchain.svg",
@@ -277,10 +300,8 @@ export default {
       this.provider.on("accountsChanged", (accounts) => {
         this.currentAccount = accounts[0]
       });
-      this.getWhiteListData()
-    } else {
-      this.getWhiteListData()
     }
+    this.getWhiteListData()
   },
   methods: {
     async getWhiteListData() {
@@ -296,16 +317,14 @@ export default {
         this.biactroWhiteListContract = new ethers.Contract(this.contractAddress, contractABI, provider);
         this.membersCount = await this.biactroWhiteListContract.totalSupply();
         this.membersCount = this.membersCount._hex
-        this.biactroWhiteListContract.on("Transfer", async (_from, _to, _tokenId) => {
-          this.$toast.success(`¡Nuevo miembro añadido! #${_tokenId}`, { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
-          this.membersCount = await this.biactroWhiteListContract.totalSupply();
-          this.membersCount = this.membersCount._hex;
+        this.biactroWhiteListContract.on("Transfer", (_from, _to, _tokenId) => {
+          this.$toast.success(`¡Biactro Founders #${_tokenId} minado!`, { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
         });
       }
       catch (error) {
         console.log(error);
       }
-    }
+    },
   },
 }
 </script>
