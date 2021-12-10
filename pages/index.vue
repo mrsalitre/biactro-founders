@@ -178,7 +178,7 @@ export default {
           {
             img: "/cartera.svg",
             title: "¿Existe un límite de Biactro Founders NFT por cartera?",
-            description: "No, cada cartera podrá minar y poseer los Biactro Founders que desee, sin embargo el contrato estará programado para minar un solo Biactro Founders a la vez. Programamos el contrato de esta forma para evitar que una sola persona o empresa con mucho capital mine la mayoría de los tokens en pocas transacciones.",
+            description: "No, cada cartera podrá minar y poseer los Biactro Founders que desee.",
             alt: "icono de minado",
           },
           {
