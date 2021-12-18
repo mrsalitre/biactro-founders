@@ -116,7 +116,7 @@ export default {
         return
       }
       const intArray = this.ids.filter(value => !isNaN(value));
-      const contractAddress = '0x56a05473f05887af5de52eceB7aca85943363481';
+      const contractAddress = '0xAF15adA75B7321f8Fe84270B2290FAf2D2225a2b';
       const contractABI = abi.abi;
       try {
         const provider = new ethers.providers.Web3Provider(this.provider);

@@ -120,7 +120,7 @@
             </div>
             <div class="sm:text-center lg:text-left py-4 text-white text-xs">
               <span class="font-semibold">
-                Contrato: <br><a class="underline" href="https://rinkeby.etherscan.io/address/0xe0C92112f20cc120649b29b6Ff51ED85D583A33b" target="_blank">{{ contractAddress }}</a>
+                Contrato: <br><a class="underline" :href="`https://mumbai.polygonscan.com/address/${ contractAddress }`" target="_blank">{{ contractAddress }}</a>
               </span>
               <br>
               <span class="font-semibold">
@@ -145,7 +145,7 @@ import abi from '../static/BiactroFoundersNFT.json'
 export default {
     data() {
       return {
-        contractAddress: '0x56a05473f05887af5de52eceB7aca85943363481',
+        contractAddress: '0xAF15adA75B7321f8Fe84270B2290FAf2D2225a2b',
         provider: null,
         membersCount: 0,
         biactroWhiteListContract: null,
@@ -306,18 +306,24 @@ export default {
   methods: {
     async getWhiteListData() {
       const contractABI = abi.abi
-      const network = ethers.providers.getNetwork("rinkeby");
       let provider;
         if (this.provider) {
           provider = new ethers.providers.Web3Provider(this.provider);
         } else {
-          provider = ethers.getDefaultProvider(network, { alchemy: 'https://eth-rinkeby.alchemyapi.io/v2/BT7pi_7fVKZ09UIm_uIpvU-iLAOcdfVJ' });
+          const matic = {
+            name: 'maticmum',
+              chainId: 80001,
+              _defaultProvider: (providers) => new providers.JsonRpcProvider('https://polygon-mumbai.g.alchemy.com/v2/mTaSXw3JVbD7f3p7AnKUgsLL5c4Ls6QN')
+          }
+          provider = ethers.getDefaultProvider(matic);
         }
       try {
         this.biactroWhiteListContract = new ethers.Contract(this.contractAddress, contractABI, provider);
         this.membersCount = await this.biactroWhiteListContract.totalSupply();
         this.membersCount = this.membersCount._hex
-        this.biactroWhiteListContract.on("Transfer", (_from, _to, _tokenId) => {
+        this.biactroWhiteListContract.on("Transfer", async (_from, _to, _tokenId) => {
+          this.membersCount = await this.biactroWhiteListContract.totalSupply();
+          this.membersCount = this.membersCount._hex
           this.$toast.success(`¡Biactro Founders #${_tokenId} minado!`, { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
         });
       }
