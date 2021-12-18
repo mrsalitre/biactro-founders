@@ -27,7 +27,7 @@ import abi from '../static/BiactroFoundersNFT.json'
 export default {
   data() {
     return {
-      contractAddress: '0xAF15adA75B7321f8Fe84270B2290FAf2D2225a2b',
+      contractAddress: '0x6CF8C714ec94859701d0398FfB43DaDB6f11d762',
       provider: null,
       currentAccount: null,
       availableTokens: []
