@@ -27,20 +27,13 @@ import abi from '../static/BiactroFoundersNFT.json'
 export default {
   data() {
     return {
-      contractAddress: '0x56a05473f05887af5de52eceB7aca85943363481',
+      contractAddress: '0xAF15adA75B7321f8Fe84270B2290FAf2D2225a2b',
       provider: null,
       currentAccount: null,
       availableTokens: []
     }
   },
-  async mounted() {
-    if (this.$web3Modal.cachedProvider) {
-      this.provider = await this.$web3Modal.connect();
-      this.currentAccount = this.provider.selectedAddress;
-      this.provider.on("accountsChanged", (accounts) => {
-        this.currentAccount = accounts[0]
-      });
-    }
+  mounted() {
     for (let index = 0; index < 10000; index++) {
       this.availableTokens.push(true)
     }
@@ -49,15 +42,13 @@ export default {
   methods: {
     getMintenTokens() {
       const contractABI = abi.abi
-      const network = ethers.providers.getNetwork("rinkeby");
-      let provider;
-      if (this.provider) {
-        provider = new ethers.providers.Web3Provider(this.provider);
-        provider.resetEventsBlock(0)
-      } else {
-        provider = ethers.getDefaultProvider(network, { alchemy: 'https://eth-rinkeby.alchemyapi.io/v2/BT7pi_7fVKZ09UIm_uIpvU-iLAOcdfVJ' });
-        provider.resetEventsBlock(0)
+      const matic = {
+        name: 'maticmum',
+          chainId: 80001,
+          _defaultProvider: (providers) => new providers.JsonRpcProvider('https://polygon-mumbai.g.alchemy.com/v2/mTaSXw3JVbD7f3p7AnKUgsLL5c4Ls6QN')
       }
+      const provider = ethers.getDefaultProvider(matic);
+      provider.resetEventsBlock(0)
       try {
         const biactroWhiteListContract = new ethers.Contract(this.contractAddress, contractABI, provider);
         biactroWhiteListContract.on("Transfer", (_from, _to, _tokenId) => {

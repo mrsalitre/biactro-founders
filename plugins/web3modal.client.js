@@ -7,7 +7,7 @@ const providerOptions = {
         package: WalletConnectProvider, // required
         options: {
             rpc: {
-                4: "https://eth-rinkeby.alchemyapi.io/v2/BT7pi_7fVKZ09UIm_uIpvU-iLAOcdfVJ"
+                80001: "https://polygon-mumbai.g.alchemy.com/v2/mTaSXw3JVbD7f3p7AnKUgsLL5c4Ls6QN"
             },
         }
     }
