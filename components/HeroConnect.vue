@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex flex-wrap">
+  <div class="min-h-screen flex flex-wrap bg-biactro-white">
     <div
       class="w-full flex flex-col justify-center max-w-screen-xl mx-auto px-4 lg:px-8 pt-8 pb-12 xl:py-0"
     >
@@ -46,7 +46,7 @@
             v-scroll-to="`#info`"
             class="w-full flex items-center text-biactro-dark justify-center px-8 py-3 border-2 border-biactro-light text-base leading-6 rounded-md font-semibold hover:border-biactro focus:outline-none focus:shadow-outline transition duration-150 ease-in-out md:py-4 md:text-lg md:px-10"
           >
-            Conocenos
+            ¿Por qué?
           </button>
         </div>
       </div>
@@ -77,8 +77,8 @@ export default {
       return this.tokenID ? this.tokenID.split(' ').map( Number ) : [];
     },
     price() {
-      const preSalePrice = 15000000000000000n;
-      const salePrice = 60000000000000000n;
+      const preSalePrice = 30000000000000000000n;
+      const salePrice = 90000000000000000000n;
       const currentPrice = this.isPreSale ? preSalePrice : salePrice;
       return (currentPrice * (BigInt(this.ids.length.toString()))).toString()
     },
@@ -97,10 +97,6 @@ export default {
     }
   },
   methods: {
-    // A function to save a random number inside tokenID between 0 and 40000
-    randomNumber() {
-      this.tokenID = Math.floor(Math.random() * 10000);
-    },
     async connectWallet() {
       if (this.$web3Modal.cachedProvider) {
         this.provider = await this.$web3Modal.connect();
@@ -116,7 +112,7 @@ export default {
         return
       }
       const intArray = this.ids.filter(value => !isNaN(value));
-      const contractAddress = '0xAF15adA75B7321f8Fe84270B2290FAf2D2225a2b';
+      const contractAddress = '0x6CF8C714ec94859701d0398FfB43DaDB6f11d762';
       const contractABI = abi.abi;
       try {
         const provider = new ethers.providers.Web3Provider(this.provider);
@@ -129,9 +125,13 @@ export default {
         await addTxn.wait();
         this.mining = false;
       } catch (error) {
-        this.$toast.error('No se ha podido minar estos tokens', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
         this.mining = false;
         console.log(error)
+        if (error.data.code === -32000) {
+          this.$toast.error('No tienes suficiente ether en tu cartera', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
+        } else {
+          this.$toast.error('No se ha podido minar estos tokens', { position: 'top-center', duration: 5000, keepOnHover: true, fullWidth: true, fitToScreen: true })
+        }
       }
     }
   }

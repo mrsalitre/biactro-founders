@@ -43,7 +43,7 @@ export default {
     },
     linkText: {
       type: String,
-      default: "Visitar nuestra página de Biactro",
+      default: "Visitar página de Biactro",
     },
     linkUrl: {
       type: String,

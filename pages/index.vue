@@ -1,8 +1,8 @@
 <template>
   <div>
     <HeroConnect id="hero"/>
+    <InfoSection id="info"/>
     <div
-      id="info"
       class="bg-biactro-white"
     >
       <div
@@ -46,8 +46,7 @@
     <FeatureList :items="items">
       ¿Qué obtengo al adquirir un NFT único de la colección <span class="inline-block text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
     </FeatureList>
-    <TextSection id="nftInfo" title="Beneficio de Founder." description="Queremos premiar e incentivar la propuesta otorgando un costo de minado de 0.015 ETH a las 900 primeras personas que minen un NFT de la colección Biactro Founders antes del 5 de enero de 2022. A partir del 5 de enero de 2022 minar un Biactro Founders costará 0.06 ETH, independientemente de sus características. No hay niveles de precios; ser miembro de Biactro Founders cuesta lo mismo para todos."/>
-    <InfoSection />
+    <TextSection id="nftInfo" title="Beneficio de Founder." description="Queremos premiar e incentivar la propuesta otorgando un costo de minado de 30 MATIC a las 900 primeras personas que minen un NFT de la colección Biactro Founders antes del 5 de enero de 2022. A partir del 5 de enero de 2022 minar un Biactro Founders costará 90 MATIC, independientemente de sus características. No hay niveles de precios; ser miembro de Biactro Founders cuesta lo mismo para todos."/>
     <div
       class="bg-biactro-white"
     >
@@ -60,7 +59,7 @@
           <h2 
             class="text-4xl font-serif text-gray-900 tracking-tight leading-10 font-bold sm:text-5xl sm:leading-none md:text-6xl xl:pr-2"
           >
-            ¿A que irá destinado los fondos recolectados de la colección <span class="inline-block text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
+            ¿A que irán destinados los fondos recolectados de la colección <span class="inline-block text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
           </h2>
           <p class="text-gray-700 text-xl sm:text-2xl biactro-gradient">Los fondos irán destinados a poner en marcha un módulo de gestión de residuos orgánicos, en el lugar del mundo que los miembros de Biactro Founders decidan por votación.</p>
         </div>
@@ -88,7 +87,7 @@
         </div>
       </div>
     </div>
-    <TextSection id="available-info" :title="`Quedan ${900 - membersCount} Biactro Founders a precio reducido.`" description="¡Date prisa!, mina tu NFT para conseguirlo a 0.015 ETH en este momento. Solo para las primeras 900 personas hasta el 5 de enero de 2022." img="/megaCity.jpg"/>
+    <TextSection id="available-info" :title="`Quedan ${900 - membersCount} Biactro Founders a precio reducido.`" description="¡Date prisa!, mina tu NFT para conseguirlo a 30 MATIC en este momento. Solo para las primeras 900 personas hasta el 5 de enero de 2022." img="/megaCity.jpg"/>
     <FeatureList :items="faq">
       FAQ/Preguntas frecuentes:
     </FeatureList>
@@ -145,7 +144,7 @@ import abi from '../static/BiactroFoundersNFT.json'
 export default {
     data() {
       return {
-        contractAddress: '0xAF15adA75B7321f8Fe84270B2290FAf2D2225a2b',
+        contractAddress: '0x6CF8C714ec94859701d0398FfB43DaDB6f11d762',
         provider: null,
         membersCount: 0,
         biactroWhiteListContract: null,
@@ -154,7 +153,7 @@ export default {
           {
             img: "/blockchain.svg",
             title: "¿Qué blockchain se usará para este proyecto?",
-            description: "Este proyecto usará la blockchain de Ethereum para realizar las transacciones. Ethereum es la red de blockchain más accesible, con más respaldo, documentación, comunidad y recursos en la actualidad. Queremos que este proyecto sea lo más inclusivo posible así que de ser necesario, a la hora de ampliar las membresías o crear servicios para miembros, optariamos por redes con un menor costo de transacciones como Solana o usar redes de segunda capa como Polygon, pero conservando la colección original en la mainet de Ethereum.",
+            description: "Este proyecto usará la blockchain de Polygon para minar los NFTs. Polygon es una red de segunda capa compatible con Ethereum, Ethereum es la red de blockchain más accesible, con más respaldo, documentación, comunidad y recursos en la actualidad. Queremos que este proyecto sea lo más inclusivo posible, por ello decidimos usar Polygon por sus bajos costes de transacción, además, al ser compatible con la red de Ethereum podrás transferir tus NFTs a esta red en todo momento.",
             alt: "icono de blockchain",
           },
           {
@@ -190,7 +189,7 @@ export default {
           {
             img: "/ethereum.svg",
             title: "¿Cuál será el costo de minado base de cada Biactro Founders NFT?",
-            description: "El costo de minado de cada Biactro Founders empezará en 0.015 ETH, este se mantendrá para las primeras 900 personas hasta el 5 de enero de 2022. A partir del 5 de enero de 2022 el costo de minado será de 0.06 ETH.",
+            description: "El costo de minado de cada Biactro Founders empezará en 30 MATIC, este se mantendrá para las primeras 900 personas hasta el 5 de enero de 2022. A partir del 5 de enero de 2022 el costo de minado será de 90 MATIC.",
             alt: "icono de ether",
           },
           {
