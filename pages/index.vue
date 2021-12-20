@@ -165,7 +165,7 @@ export default {
           {
             img: "/sd_storage_black_24dp.svg",
             title: "¿Dónde se almacenará la imagen y los metadatos de mi NFT?",
-            description: "Guardaremos los metadatos de cada NFT usando IPFS, estos estarán referenciados mediante una un identificador de contenido único. La imagen por su parte estará almacenada dentro de los metadatos, en lugar de referenciar la ubicación de la imagen en otra ubicación. Al almacenar la imagen dentro de los metadatos y los metadatos en IPFS conseguimos que los datos del NFT duren hasta el fin de nuestra civilización sin ser alterados.",
+            description: "Guardaremos los metadatos de cada NFT usando IPFS, estos estarán referenciados mediante un identificador de contenido único. La imagen por su parte estará almacenada dentro de los metadatos usando una 'data URL', en lugar de referenciar la imagen en otra ubicación. Al almacenar la imagen dentro de los metadatos y los metadatos en IPFS conseguimos que los datos del NFT duren hasta el fin de nuestra civilización sin ser alterados.",
             alt: "icono de almacenamiento",
           },
           {
