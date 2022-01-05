@@ -44,7 +44,7 @@
     </div>
     <InfoSection id="more-info" title="Biactro™. Comprometidos con la reducción de la huella de carbono." description="Tras un bagaje profesional de sólida experiencia en las actividades de I+D+i establecido en planes desde su inicio hasta su puesta en marcha, la empresa, ha ido conformando el desarrollo para la promoción de varios proyectos pioneros, dando respuesta tangible a la problemática del deterioro medioambiental con la creación de nuevos modelos productivos y de desarrollo sostenible dedicado a la industria de cultivos intensivos ecológicos, tratamiento de residuos y valorización energética." />
     <FeatureList :items="items">
-      ¿Qué obtengo al adquirir un NFT único de la colección <span class="inline-block text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
+      ¿Cual es el roadmap para los poseedores de un <span class="inline-block text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders NFT</span>?
     </FeatureList>
     <TextSection id="nftInfo" title="Beneficio de Founder." description="Queremos premiar e incentivar la propuesta otorgando un costo de minado de 30 MATIC a las 900 primeras personas que minen un NFT de la colección Biactro Founders antes del 5 de enero de 2022. A partir del 5 de enero de 2022 minar un Biactro Founders costará 90 MATIC, independientemente de sus características. No hay niveles de precios; ser miembro de Biactro Founders cuesta lo mismo para todos."/>
     <div
@@ -61,7 +61,7 @@
           >
             ¿A que irán destinados los fondos recolectados de la colección <span class="inline-block text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
           </h2>
-          <p class="text-gray-700 text-xl sm:text-2xl biactro-gradient">Los fondos irán destinados a poner en marcha un módulo de gestión de residuos orgánicos, en el lugar del mundo que los miembros de Biactro Founders decidan por votación.</p>
+          <p class="text-gray-700 text-xl sm:text-2xl biactro-gradient">Los fondos irán destinados a la implantación de un módulo de gestión de residuos orgánicos en La Palma.</p>
         </div>
         <div class="mt-8 sm:mt-8 sm:flex lg:justify-start">
           <div
@@ -208,38 +208,44 @@ export default {
         items: [
           {
             img: "/member.svg",
-            title: "Miembro de Biactro Founders",
-            description: "Cuando obtienes un Biactro Founders NFT, estas adquiriendo algo más que un certificado. Obtendrás acceso como miembro de un club cuyos beneficios y ofertas aumentarán con el tiempo: newsletter exclusivas, merchandising, acceso a eventos privados, charlas y mucho más. Si posees un certificado tendrás acceso a todos estos beneficios y aquellos que añadamos en el futuro.",
+            title: "Enero 6 de 2022",
+            description: "Se inicia el minado anticipado de la colección “Biactro Founders” a precio reducido hasta el 14 de febrero del 2022, estos NFT tendrán un costo de 30 MATIC para recompensar a los primeros 900 compradores.",
             alt: "icono de miembro",
           },
           {
             img: "/amba.svg",
-            title: "Ambassador de Biactro",
-            description: "Tendrás el derecho de poder intermediar con aquellos organismos públicos o privados que deseen usar la tecnología en tu lugar de origen. Obteniendo parte de los beneficios de explotación; una vez hayas asistido a nuestras reuniones formativas gratuitas y obtengas el beneplácito de la mayoría de los founders.",
+            title: "Febrero 14 de 2022",
+            description: "Termina el minado anticipado y se inicia la venta oficial de la colección “Biactro Founders” restantes al precio de 90 MATIC cada uno.",
             alt: "icono de embajador",
           },
           {
             img: "/offer.svg",
-            title: "Descuentos y ofertas",
-            description: "Podrás acceder a un descuento exclusivo si deseas implementar la tecnología para el beneficio de tu comunidad, o en el merchandising.",
+            title: "Marzo 8 de 2022",
+            description: "Se abren los cursos de capacitación online para que los poseedores de un NFT puedan intermediar con agentes locales o inversores para la venta o explotación de la tecnología.",
             alt: "icono de oferta",
           },
           {
             img: "/chat.svg",
-            title: "Chat privado",
-            description: "Obtendrás acceso al chat privado de la comunidad de Biactro donde podrás contactar con otros fundadores. Solo aquellos que posean un NFT de la colección podrán acceder a este chat exclusivo.",
+            title: "Abril de 2022",
+            description: "Se otorgan NFTs de embajador de Biactro a los poseedores de un NFT Biactro Founders que hayan superado con éxito la capacitación online.",
             alt: "icono de chat",
           },
           {
             img: "/tree.svg",
-            title: "Forestación",
-            description: "Parte de los beneficios de cada token servirá para plantar un árbol. No se plantará cualquier tipo de árbol, sino aquellos autorizados para la zona y que no afecten al ecosistema local.",
+            title: "Agosto de 2022",
+            description: "Primer evento físico de Biactro, sólo los poseedores de un NFT Biactro Founders con todas las propiedades Holográficas podrán asistir a este evento. El evento se realizará al norte de Gran Canaria, en la primera planta de experimentación de Biactro, en la Aldea de San Nicolas.",
             alt: "Icono de arbol",
           },
           {
             img: "/savings_black_24dp.svg",
-            title: "Beneficios económicos",
-            description: "Los miembros de Biactro Founders recibirán el 1% de los beneficios netos de las ventas mundiales, poseer un NFT de la colección Biactro Founders garantiza a su propietario recibir una compensación económica resultado de la implantación de la tecnología, independientemente del país de implantación. Además también se asegura un porcentaje por kilo vendido de fertilizante de marca Biactro.",
+            title: "Diciembre de 2022",
+            description: "Primer evento online donde nos reuniremos todos los poseedores de un Biactro Founders para debatir el año y los planes de futuro.",
+            alt: "icono de beneficios",
+          },
+          {
+            img: "/savings_black_24dp.svg",
+            title: "2023 - 2024",
+            description: "Continuamos con los eventos, los cursos de capacitación y las sorpresas para la comunidad, también abrimos las puertas a diferentes posibilidades para el crecimiento de la comunidad, como asociaciones con marcas, merchandising, entre otras cosas. Queremos llevar el proyecto al siguiente nivel pero no podemos prometerlo ahora mismo, cuando consigamos completar las primeras fases nos gustaría poder ofrecer en el futuro un porcentaje de los beneficios de Biactro a los poseedores de un NFT Biactro Founders.",
             alt: "icono de beneficios",
           },
         ]

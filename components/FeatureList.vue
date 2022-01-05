@@ -14,7 +14,7 @@
             class="mt-10"
           >
             <div class="flex">
-              <div class="flex-shrink-0">
+              <!-- <div class="flex-shrink-0">
                 <div
                   class="flex items-center justify-center h-12 w-12 rounded-md bg-iberinsect-light text-white"
                 >
@@ -25,8 +25,8 @@
                     :alt="item.alt || 'icono de ventaja'"
                   />
                 </div>
-              </div>
-              <div class="ml-4">
+              </div> -->
+              <div>
                 <h3
                   class="text-lg font-serif leading-6 font-black text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600"
                 >{{item.title}}</h3>
