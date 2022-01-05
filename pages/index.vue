@@ -198,6 +198,18 @@ export default {
             description: "El costo de minado de cada Biactro Founders empezará en 30 MATIC, este se mantendrá para las primeras 900 personas hasta el 14 de febrero de 2022. A partir del 14 de febrero de 2022 el costo de minado será de 90 MATIC.",
             alt: "icono de ether",
           },
+          {
+            img: "/ethereum.svg",
+            title: "¿Qué comisiones de venta tienen los Smart Contracts?",
+            description: "La colección Biactro Founders tiene una comisión de regalías de 7,5% por venta. Esto con el objetivo de alinear nuestros incentivos con la revalorización de la colección. Además OpenSea tiene una comisión fija del 2,5% por ventas. Lo que le da un total de comisiones del 10% por Token.",
+            alt: "icono de ether",
+          },
+          {
+            img: "/ethereum.svg",
+            title: "¿Es una buena inversión comprar un Token?",
+            description: "Esta es una decisión completamente suya. Apostamos porque No solo un JPG sea un proyecto en constante crecimiento y nos esforzaremos al máximo porque cada pieza se revalorice, sin embargo el éxito de este proyecto depende de tantos factores que es imposible determinarlo.",
+            alt: "icono de ether",
+          },
         ],
         items: [
           {
