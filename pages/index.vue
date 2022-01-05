@@ -44,9 +44,9 @@
     </div>
     <InfoSection id="more-info" title="Biactro™. Comprometidos con la reducción de la huella de carbono." description="Tras un bagaje profesional de sólida experiencia en las actividades de I+D+i establecido en planes desde su inicio hasta su puesta en marcha, la empresa, ha ido conformando el desarrollo para la promoción de varios proyectos pioneros, dando respuesta tangible a la problemática del deterioro medioambiental con la creación de nuevos modelos productivos y de desarrollo sostenible dedicado a la industria de cultivos intensivos ecológicos, tratamiento de residuos y valorización energética." />
     <FeatureList :items="items">
-      ¿Cual es el roadmap para los poseedores de un <span class="inline-block text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders NFT</span>?
+      ¿Cual es el roadmap para los poseedores de un <span class="inline-block text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">Biactro Founders</span>?
     </FeatureList>
-    <TextSection id="nftInfo" title="Beneficio de Founder." description="Queremos premiar e incentivar la propuesta otorgando un costo de minado de 30 MATIC a las 900 primeras personas que minen un NFT de la colección Biactro Founders antes del 5 de enero de 2022. A partir del 5 de enero de 2022 minar un Biactro Founders costará 90 MATIC, independientemente de sus características. No hay niveles de precios; ser miembro de Biactro Founders cuesta lo mismo para todos."/>
+    <TextSection id="nftInfo" title="Beneficio de Founder." description="Queremos premiar e incentivar la propuesta otorgando un costo de minado de 30 MATIC a las 900 primeras personas que minen un NFT de la colección Biactro Founders antes del 14 de febrero de 2022. A partir del 14 de febrero de 2022 minar un Biactro Founders costará 90 MATIC, independientemente de sus características. No hay niveles de precios; ser miembro de Biactro Founders cuesta lo mismo para todos."/>
     <div
       class="bg-biactro-white"
     >
@@ -87,7 +87,7 @@
         </div>
       </div>
     </div>
-    <TextSection id="available-info" :title="`Quedan ${900 - membersCount} Biactro Founders a precio reducido.`" description="¡Date prisa!, mina tu NFT para conseguirlo a 30 MATIC en este momento. Solo para las primeras 900 personas hasta el 5 de enero de 2022." img="/megaCity.jpg"/>
+    <TextSection id="available-info" :title="`Quedan ${900 - membersCount} Biactro Founders a precio reducido.`" description="¡Date prisa!, mina tu NFT para conseguirlo a 30 MATIC en este momento. Solo para las primeras 900 personas hasta el 14 de febrero de 2022." img="/megaCity.jpg"/>
     <FeatureList :items="faq">
       FAQ/Preguntas frecuentes:
     </FeatureList>
@@ -104,7 +104,7 @@
           >
             ¿Tienes dudas?
           </h2>
-          <p class="text-gray-700 text-xl sm:text-2xl font-semibold">Si tienes preguntas o dudas sobre el proyecto puedes <a href="https://www.discord.com" class="underline">unirte a nuestro servidor de Discord</a> para resolverlas.</p>
+          <p class="text-gray-700 text-xl sm:text-2xl font-semibold">Si tienes preguntas o dudas sobre el proyecto puedes añadirnos en el <a href="https://twitter.com/BIACTROTECH" class="underline">Twitter de Biactro</a> y preguntarnos todo lo que desees. Usamos twitter como único medio de comunicación para que no te pierdas ninguna noticia, así evitamos que puedas ser víctima de un scam por otros medios de comunicación.</p>
         </div>
       </div>
     </div>
@@ -152,15 +152,21 @@ export default {
         faq: [
           {
             img: "/blockchain.svg",
-            title: "¿Qué blockchain se usará para este proyecto?",
-            description: "Este proyecto usará la blockchain de Polygon para minar los NFTs. Polygon es una red de segunda capa compatible con Ethereum, Ethereum es la red de blockchain más accesible, con más respaldo, documentación, comunidad y recursos en la actualidad. Queremos que este proyecto sea lo más inclusivo posible, por ello decidimos usar Polygon por sus bajos costes de transacción, además, al ser compatible con la red de Ethereum podrás transferir tus NFTs a esta red en todo momento.",
+            title: "¿Qué es un NFT?",
+            description: "Un NFT significa «Token no fungible» por sus siglas en inglés. Básicamente se trata de propiedad privada digital que los usuarios pueden comprar, poseer e intercambiar. La función principal de los NFT es el arte digital y el coleccionismo, pero algunas ofrecen una utilidad adicional como acceso exclusivo a sitios web, participación en un evento, etc. Piense en estos activos como una pieza de colección que también puede actuar como una tarjeta de «miembros».",
             alt: "icono de blockchain",
           },
           {
-            img: "/contratos-inteligentes.svg",
-            title: "¿Cómo se asegura que los beneficios serán repartidos?",
-            description: "En Biactro Technology creemos que la tecnología puede ayudarnos a conseguir un futuro mejor, por este motivo empleamos la tecnología “smart contracts” de Ethereum. Este “contrato inteligente” será programado para repartir de manera automática los beneficios entre todos los propietarios de un Biactro Founders NFT, sin la intervención de ninguna persona u organismo. Todas las personas podrán consultar este contrato inteligente y sus funcionalidades de forma pública, así como publicar sugerencias o señalar errores antes de su publicación.",
-            alt: "icono de smart contract",
+            img: "/blockchain.svg",
+            title: "¿Qué puedo hacer con mi Token de Biactro Founder?",
+            description: "Tienes la libertad de hacer todo lo que quieras con su Tokens, puedes imprimirlo y lucirlo en tu pared, imprimirlo en una camisa, usarlo de foto de perfil, venderlo, alquilarlo, subastarlo. ¡Es tuyo, para siempre!",
+            alt: "icono de blockchain",
+          },
+          {
+            img: "/blockchain.svg",
+            title: "¿Qué blockchain se usará para este proyecto?",
+            description: "Este proyecto usará la blockchain de Polygon para minar los NFTs. Polygon es una red de segunda capa compatible con Ethereum, Ethereum es la red de blockchain más accesible, con más respaldo, documentación, comunidad y recursos en la actualidad. Queremos que este proyecto sea lo más inclusivo posible, por ello decidimos usar Polygon por sus bajos costes de transacción, además, al ser compatible con la red de Ethereum podrás transferir tus NFTs a esta red en todo momento.",
+            alt: "icono de blockchain",
           },
           {
             img: "/sd_storage_black_24dp.svg",
@@ -171,7 +177,7 @@ export default {
           {
             img: "/date_range_black_24dp.svg",
             title: "¿Cuándo se podrán minar los Biactro Founders?",
-            description: "Puedes minar Biactro Founders ahora mismo a un coste reducido, sólo si eres una de las primeras 900 personas antes del 5 de enero de 2022. Si se llega al límite de Founders antes de la fecha citada no se podrán minar más NFT hasta llegar al 5 de enero de 2022.",
+            description: "Puedes minar Biactro Founders ahora mismo a un coste reducido, sólo si eres una de las primeras 900 personas antes del 14 de febrero de 2022. Si se llega al límite de Founders antes de la fecha citada no se podrán minar más NFT hasta llegar al 14 de febrero de 2022.",
             alt: "icono de minado",
           },
           {
@@ -189,21 +195,9 @@ export default {
           {
             img: "/ethereum.svg",
             title: "¿Cuál será el costo de minado base de cada Biactro Founders NFT?",
-            description: "El costo de minado de cada Biactro Founders empezará en 30 MATIC, este se mantendrá para las primeras 900 personas hasta el 5 de enero de 2022. A partir del 5 de enero de 2022 el costo de minado será de 90 MATIC.",
+            description: "El costo de minado de cada Biactro Founders empezará en 30 MATIC, este se mantendrá para las primeras 900 personas hasta el 14 de febrero de 2022. A partir del 14 de febrero de 2022 el costo de minado será de 90 MATIC.",
             alt: "icono de ether",
           },
-          {
-            img: "/democracia.svg",
-            title: "¿Cómo se decidirá dónde abrir el nuevo módulo?",
-            description: "Una vez se hayan minado todos los NFTs de la colección Biactro Founders iniciaremos el desarrollo de los tokens de gobierno, esta será la forma de interactuar con el contrato inteligente encargado de admitir propuestas de los miembros de Biactro Founders, los cuales podrán votar entre estas propuestas para decidir el lugar y representante.",
-            alt: "icono de democracia",
-          },
-          {
-            img: "/bosque.svg",
-            title: "¿Qué cantidad del token irá destinado al proyecto de forestación?",
-            description: "Una vez se hayan minado todos los NFTs y hayamos desarrollado los tokens de gobierno, los Founders podrán decidir la cantidad y el lugar del proyecto de forestación una vez hayamos alcanzado el objetivo inicial de abrir un nuevo módulo.",
-            alt: "icono de bosque",
-          }
         ],
         items: [
           {
