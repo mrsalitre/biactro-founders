@@ -9,7 +9,7 @@
         Founders de Biactro: <br><span class="text-transparent bg-clip-text bg-gradient-to-br from-yellow-400 to-green-600">El futuro es hoy.</span>
       </h1>
       <p class="lg:w-1/2 mt-3 text-base text-gray-800 sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl lg:mx-0 biactro-gradient">
-        Hemos abierto el acceso previo para minar NFTs de la colección Biactro Founders. Solo las primeras 900 personas podrán conseguir su NFT <strong><span>único</span></strong> de la colección ‘Biactro Founders’ a un costo de minado exclusivo, hasta el día 5 de enero de 2022.  
+        Hemos abierto el acceso previo para minar NFTs de la colección Biactro Founders. Solo las primeras 900 personas podrán conseguir su NFT <strong><span>único</span></strong> de la colección ‘Biactro Founders’ a un costo de minado exclusivo, hasta el día 14 de febrero de 2022.  
       </p>
       <div v-if="currentAccount !== null" class="w-full sm:max-w-md">
         <div class="relative mt-4">
