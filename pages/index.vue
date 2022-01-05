@@ -239,7 +239,7 @@ export default {
           {
             img: "/tree.svg",
             title: "Agosto de 2022",
-            description: "Primer evento físico de Biactro, sólo los poseedores de un NFT Biactro Founders con todas las propiedades Holográficas podrán asistir a este evento. El evento se realizará al norte de Gran Canaria, en la primera planta de experimentación de Biactro, en la Aldea de San Nicolas.",
+            description: "Primer evento físico de Biactro, sólo los poseedores de un NFT Biactro Founders con todas las propiedades Holográficas podrán asistir a este evento. El evento se realizará al norte de Gran Canaria, en la primera planta genesis ya operativa de Biactro, en la Aldea de San Nicolas.",
             alt: "Icono de arbol",
           },
           {
