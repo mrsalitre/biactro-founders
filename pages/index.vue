@@ -123,7 +123,7 @@
               </span>
               <br>
               <span class="font-semibold">
-                CID de IPFS: <br><a class="underline" href="https://ipfs.io/ipfs/QmfLCLmb3TvFgnJccCBVVSVWsg6jaepsXoW5wxpFV14mhc" target="_blank">QmfLCLmb3TvFgnJccCBVVSVWsg6jaepsXoW5wxpFV14mhc</a>
+                CID de IPFS: <br><a class="underline" href="https://ipfs.io/ipfs/QmY29on4VP2o2fcwtk98y68YC8GrKEbc2mpsKM9h8UAne3" target="_blank">QmfLCLmb3TvFgnJccCBVVSVWsg6jaepsXoW5wxpFV14mhc</a>
               </span>
             </div>
             <div class="sm:text-center lg:text-left py-4 text-white">
