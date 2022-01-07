@@ -78,7 +78,7 @@ export default {
     },
     price() {
       const preSalePrice = 30000000000000000000n;
-      const salePrice = 90000000000000000000n;
+      const salePrice = 52000000000000000000n;
       const currentPrice = this.isPreSale ? preSalePrice : salePrice;
       return (currentPrice * (BigInt(this.ids.length.toString()))).toString()
     },
@@ -112,14 +112,15 @@ export default {
         return
       }
       const intArray = this.ids.filter(value => !isNaN(value));
-      const contractAddress = '0x20dC99D6d38eF06637Bb77a910a65011CBBE9aaE';
+      const contractAddress = '0x736c0Ec9dD932a267204656e4485C9575D9fa834';
       const contractABI = abi.abi;
       try {
         const provider = new ethers.providers.Web3Provider(this.provider);
         const signer = provider.getSigner();
         const biactroWhiteListContract = new ethers.Contract(contractAddress, contractABI, signer);
         
-        const addTxn = await biactroWhiteListContract.mint(intArray, { value: ethers.utils.parseUnits(this.price, 'wei') });
+        // value: ethers.utils.parseUnits(this.price, 'wei')
+        const addTxn = await biactroWhiteListContract.mint(intArray);
         this.mining = true;
 
         await addTxn.wait();
