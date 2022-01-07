@@ -144,7 +144,7 @@ import abi from '../static/BiactroFoundersNFT.json'
 export default {
     data() {
       return {
-        contractAddress: '0x6CF8C714ec94859701d0398FfB43DaDB6f11d762',
+        contractAddress: '0x20dC99D6d38eF06637Bb77a910a65011CBBE9aaE',
         provider: null,
         membersCount: 0,
         biactroWhiteListContract: null,
